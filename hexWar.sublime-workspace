@@ -1,0 +1,678 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"cook",
+				"cookieParser"
+			],
+			[
+				"$s",
+				"$scope	AngularJS"
+			],
+			[
+				"fo",
+				"form	Tag"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"fea",
+				"featureList"
+			],
+			[
+				"backgo",
+				"background-color"
+			],
+			[
+				"up",
+				"upsertByName"
+			],
+			[
+				"deck",
+				"decksCollection"
+			],
+			[
+				"feat",
+				"featureExpression"
+			],
+			[
+				"lev",
+				"levelCheckbox"
+			],
+			[
+				"levelB",
+				"levelCheckbox"
+			],
+			[
+				"level",
+				"levelBonus"
+			],
+			[
+				"in",
+				"input-sm"
+			],
+			[
+				"ng-",
+				"ng-model	AngularJS"
+			],
+			[
+				"pu",
+				"pushCarefully"
+			],
+			[
+				"card-pric",
+				"card-price-crystal"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"find",
+				"findByName"
+			],
+			[
+				"nu",
+				"numberOfRemovedDocs"
+			],
+			[
+				"meta",
+				"metadata"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"right_conte",
+				"right_content_w"
+			],
+			[
+				"card",
+				"card_printing"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"cr",
+				"cryst"
+			],
+			[
+				"app",
+				"appendChild"
+			],
+			[
+				"con",
+				"contextMenu"
+			],
+			[
+				"car",
+				"card_type"
+			],
+			[
+				"menu",
+				"menuItems"
+			],
+			[
+				"re",
+				"removeFeature"
+			],
+			[
+				"too",
+				"toogleBublesAcross"
+			],
+			[
+				"hei",
+				"height"
+			],
+			[
+				"l",
+				"label	Tag"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"lo",
+				"loadForm"
+			],
+			[
+				"url",
+				"url_parts"
+			],
+			[
+				"no",
+				"notifyObservers"
+			],
+			[
+				"o",
+				"observable"
+			],
+			[
+				"ob",
+				"observer1"
+			],
+			[
+				"obser",
+				"observable"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"n",
+				"n"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 180.0,
+		"selected_items":
+		[
+			[
+				"grunt",
+				"Grunt"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				":install",
+				"Package Control: Install Package"
+			],
+			[
+				":insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				":j",
+				"Set Syntax: JavaScript"
+			],
+			[
+				":q",
+				"Set Syntax: SQL"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"reind",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"rein",
+				"Indentation: Reindent Lines"
+			],
+			[
+				":inden",
+				"Indentation: Reindent Lines"
+			]
+		],
+		"width": 417.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/fern/projects/hexWar/README.md",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/base.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/price.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/card_form.html",
+		"/home/fern/projects/ccg/views/layout/pieces/card/aphp.html",
+		"/home/fern/projects/ccg/views/layout/pieces/card.html",
+		"/home/fern/projects/ccg/views/styles/card.less",
+		"/home/fern/projects/ccg/views/js/admin/config.js",
+		"/home/fern/projects/ccg/views/js/admin/config.default.js",
+		"/home/fern/projects/ccg/views/js/admin/admin.js",
+		"/home/fern/projects/ccg/views/js/admin/app.js",
+		"/home/fern/projects/yeoman/ccg/.bowerrc",
+		"/home/fern/projects/yeoman/ccg/package.json",
+		"/home/fern/projects/yeoman/ccg/Gruntfile.js",
+		"/home/fern/projects/yeoman/ccg/lib/config/env/all.js",
+		"/home/fern/projects/yeoman/ccg/lib/config/mongodb.js",
+		"/home/fern/projects/yeoman/ccg/lib/controllers/index.js",
+		"/home/fern/projects/yeoman/ccg/lib/controllers/api.js",
+		"/home/fern/projects/yeoman/ccg/lib/routes.js",
+		"/home/fern/projects/yeoman/ccg/lib/config/express.js",
+		"/home/fern/projects/yeoman/ccg/server.js",
+		"/home/fern/projects/yeoman/ccg/app/views/index.html",
+		"/home/fern/projects/yeoman/ccg/app/scripts/controllers/login.js",
+		"/home/fern/projects/yeoman/ccg/app/views/partials/login.html",
+		"/home/fern/projects/yeoman/ccg/app/scripts/controllers/signup.js",
+		"/home/fern/projects/yeoman/ccg/app/views/partials/signup.html",
+		"/home/fern/projects/yeoman/ccg/app/scripts/controllers/navbar.js",
+		"/home/fern/projects/yeoman/ccg/app/views/partials/navbar.html",
+		"/home/fern/projects/yeoman/ccg/app/scripts/app.js",
+		"/home/fern/projects/yeoman/ccg/lib/config/passport.js",
+		"/home/fern/projects/yeoman/ccg/app/views/partials/main.html",
+		"/home/fern/projects/yeoman/ccg/app/views/partials/footer.html",
+		"/home/fern/projects/yeoman/ccg/app/views/partials/registration.html",
+		"/home/fern/projects/ccg/package.json",
+		"/home/fern/projects/ccg/.gitignore",
+		"/home/fern/projects/ccg/Gruntfile.js",
+		"/home/fern/projects/ccg/views/js/admin/controllers/AdminCardFormCtrl.js",
+		"/home/fern/projects/ccg/views/js/admin/services/CardManager.js",
+		"/home/fern/projects/ccg/bower.json",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/commons.html",
+		"/home/fern/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/fern/projects/ccg/views/css/custom-bootstrap.css",
+		"/home/fern/projects/ccg/views/layout/abstract/base.html",
+		"/home/fern/projects/ccg/views/js/admin/filters/FeatureShorter.js",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/alert.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/card_crud.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/card_printing.html",
+		"/home/fern/projects/ccg/views/js/admin/controllers/AdminPrintCtrl.js",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/level.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/levelup.html",
+		"/home/fern/projects/ccg/views/styles/main.css",
+		"/home/fern/projects/ccg/views/bower_components/angular-bootstrap-affix/dist/angular-bootstrap-affix.js",
+		"/home/fern/projects/ccg/app.js",
+		"/home/fern/projects/ccg/views/js/admin/directives/markdown.js",
+		"/home/fern/projects/ccg/views/js/admin/filters/CardTypeShorter.js",
+		"/home/fern/projects/ccg/views/js/admin/filters/markdown.js",
+		"/home/fern/projects/ccg/views/js/admin/services/MessageService.js",
+		"/home/fern/projects/ccg/views/js/admin/controllers/AdminCRUDCtrl.js",
+		"/home/fern/projects/ccg/rest.js",
+		"/home/fern/projects/ccg/dao/card.js",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/index.html",
+		"/home/fern/projects/ccg/views/js/admin/controllers.js",
+		"/home/fern/projects/ccg/views/js/admin/directives/ngEnter.js",
+		"/home/fern/projects/staticWebServer/app.js",
+		"/home/fern/projects/staticWebServer/package.json",
+		"/home/fern/projects/ccg/dao/dao.js",
+		"/home/fern/projects/ccg/views/js/core/core.js",
+		"/home/fern/projects/jvs/pom.xml",
+		"/home/fern/projects/jvs/pom.xml.orig",
+		"/home/fern/projects/jvs/pom.xml.releaseBackup",
+		"/home/fern/projects/jvs/README.md",
+		"/home/fern/projects/ccg/views/js/vendor/less-1.5.0.min.js",
+		"/home/fern/projects/ccg/views/js/core/config.js",
+		"/home/fern/projects/hornalpin/resources/css/hornalpin_style.css",
+		"/home/fern/projects/hornalpin/index.php",
+		"/home/fern/projects/hornalpin/domain/references/item1.php",
+		"/home/fern/projects/hornalpin/resources/js/menu.js",
+		"/home/fern/projects/hornalpin/domain/references/picHandler.php",
+		"/home/fern/Documents/ProgrammingSucks_hun.txt",
+		"/home/fern/Documents/ProgrammingSucks_eng.txt",
+		"/home/fern/projects/auction/README.md",
+		"/home/fern/FBooks/ke.nfo",
+		"/home/fern/projects/hornalpin/domain/references/pic/descreptions.json",
+		"/home/fern/tmp/read_jvm.me",
+		"/home/fern/projects/PalSzak.github.io/index.html",
+		"/home/fern/projects/ccg/dao/deck.js",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/combo.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/bonus.html",
+		"/home/fern/projects/myproxy/app.js",
+		"/home/fern/projects/myproxy/package.json",
+		"/home/fern/NewMedia-NETGmbH",
+		"/home/fern/projects/ccg/webUI.js",
+		"/home/fern/projects/ccg/views/layout/usable/admin/card_printing.html",
+		"/home/fern/projects/ccg/views/layout/usable/admin/admin.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/picture_upload.html",
+		"/home/fern/projects/ccg/views/layout/usable/admin/picture_upload.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/ap.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/trickandtrapdesc.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/tax.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/hp.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/herofeatures.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/count.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/aphp.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/count_trap.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/price_ap.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/feature.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/crud_forms/type.html",
+		"/home/fern/projects/ccg/views/layout/usable/admin/cardForm.html",
+		"/home/fern/projects/ccg/views/layout/usable/admin/crud_forms/base.html",
+		"/home/fern/projects/ccg/views/layout/usable/admin/card_crud_form.html",
+		"/home/fern/projects/ccg/views/layout/pieces/admin/card_crud_form.html",
+		"/home/fern/projects/ccg/views/layout/usable/admin/card_crud.html",
+		"/home/fern/Downloads/ui-bootstrap-tpls-0.10.0.js",
+		"/home/fern/projects/ccg/views/js/controllers.js",
+		"/home/fern/projects/ccg/views/layout/usable/admin/crud_forms/count_monster.html",
+		"/home/fern/projects/ccg/ui.js",
+		"/home/fern/projects/ccg/views/layout/pieces/cardForm.html",
+		"/home/fern/projects/ccg/views/styles/main.less",
+		"/home/fern/projects/ccg/views/layout/usable/admin/crud_forms/description.html",
+		"/home/fern/projects/ccg/views/layout/usable/admin/crud_forms/name.html",
+		"/home/fern/projects/Lajos/src/views/layout/pieces/card.html",
+		"/home/fern/projects/learn-angular/app/css/bootstrap.min.css",
+		"/home/fern/Downloads/ui-bootstrap-tpls-0.10.0.min.js",
+		"/home/fern/projects/ccg/dao/picture.js",
+		"/home/fern/projects/ccg/views/layout/usable/admin/crud_forms/avatar.html",
+		"/home/fern/projects/ccg/dao/cardDAO.js",
+		"/home/fern/projects/ccg/cardDAO.js",
+		"/home/fern/projects/ccg/views/js/card_crud.js"
+	],
+	"find":
+	{
+		"height": 44.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"main.css",
+			"<open files>",
+			"",
+			"card.html",
+			"card.js",
+			"<open files>",
+			"",
+			"<open files>",
+			"card.html",
+			"building.html",
+			"card.html",
+			"building.html",
+			"card.less",
+			"card_crud.html",
+			"card",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"left_col",
+			"-",
+			"feature",
+			"@info-box-h",
+			"feature",
+			"info_box",
+			"info-box",
+			"Cryst",
+			"Gold",
+			"price",
+			"div",
+			"desc",
+			"name",
+			"html",
+			"       ",
+			"SESSION",
+			"livereload",
+			"livereload:",
+			"watch",
+			"feature",
+			"feature_info",
+			"$http",
+			"update",
+			"avata",
+			"avatar",
+			"\\t",
+			"descri",
+			"card_type",
+			"ap",
+			"fea",
+			"ret",
+			"cardtypes",
+			"\n			",
+			");\n",
+			"				//",
+			");\n",
+			"http.",
+			"AdminFormCtrl",
+			"$routeParams",
+			"event",
+			"menu",
+			"header",
+			"#",
+			"mt",
+			"level",
+			"content",
+			"@ratio-xs-font-size",
+			"http.get",
+			".get",
+			"deck.",
+			"deck",
+			"deck.",
+			"pack",
+			"$scope.alerts",
+			"post",
+			"save",
+			"print",
+			"index",
+			"original",
+			"cardDinamicLoadController",
+			"deck",
+			"ng-con",
+			"deck",
+			"add",
+			"ap",
+			"filter:",
+			"got t",
+			"AdminPrintCtrl",
+			"ng-re",
+			"special",
+			"type",
+			"rest/",
+			"repe",
+			"desc",
+			"info",
+			"{\n",
+			"ng-modell",
+			"ng-controller",
+			"ng-click",
+			"conrol",
+			"\" ",
+			"admin",
+			"label",
+			"\n",
+			"fs",
+			"grid_pictures",
+			"dao.",
+			"array",
+			"DB",
+			"db.collection(\"cards\")",
+			"db",
+			"grid_pictures",
+			"db",
+			"dao.cards",
+			"){\n",
+			"cards",
+			"findOne",
+			"console.log",
+			"fetchCardsToArray",
+			"card_types",
+			"db",
+			"db.collection('pictures.files')",
+			"db.collection('pictures",
+			"db.collection('cards')",
+			"db.",
+			"db.collection(\"cards\")",
+			"collection",
+			"tag",
+			"swig",
+			"{{",
+			"}}",
+			"{{",
+			"\\{\\{",
+			"<!",
+			"var",
+			"{{",
+			"swig",
+			"fetch",
+			"grid",
+			"gird",
+			"grid_pictures",
+			"grid",
+			"db.",
+			"Grid",
+			"backgr",
+			"top-row",
+			"	\n",
+			"descasmagic"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"    ",
+			"\n#",
+			"#\n",
+			"\n\nng-model",
+			"ng-modell",
+			"card-label",
+			"cardsDB",
+			"dao.pictures",
+			"dao.cards",
+			"{%=",
+			"%}",
+			"{%=",
+			"{% if ccg.",
+			"ccg.",
+			"totallynewvalue.",
+			".",
+			"{{totallynewvalue.",
+			"{{ccg.",
+			"name=\"ccg.",
+			"value=\"\"",
+			"value=\"0\"",
+			"",
+			"div",
+			"observe",
+			"observe\nobserve",
+			"sublime.desktop"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"login.",
+				"ccg/app/views/partials/login.html"
+			],
+			[
+				"app/scripts/",
+				"ccg/app/scripts/app.js"
+			],
+			[
+				"rou",
+				"ccg/lib/routes.js"
+			],
+			[
+				"controllers/navb",
+				"ccg/app/scripts/controllers/navbar.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 268.0,
+	"status_bar_visible": true
+}
