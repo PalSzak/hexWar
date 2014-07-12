@@ -1,7 +1,75 @@
 /* global MozActivity */
 'use strict';
-(function () {
-    /*
+
+angular.module('PalSzak.Hexwar')
+
+  .controller('MobileCtrl', function($scope, $location, version) {
+
+//base.js START
+    if (navigator.mozApps) {
+    var checkIfInstalled = navigator.mozApps.getSelf();
+    checkIfInstalled.onsuccess = function () {
+        if (checkIfInstalled.result) {
+            // Already installed
+            var installationInstructions = document.querySelector('#installation-instructions');
+            if (installationInstructions) {
+                installationInstructions.style.display = 'none';
+            }
+        }
+        else {
+            var install = document.querySelector('#install'),
+                manifestURL = location.href.substring(0, location.href.lastIndexOf('/')) + '/manifest.webapp';
+            install.className = 'show-install';
+            install.onclick = function () {
+                var installApp = navigator.mozApps.install(manifestURL);
+                installApp.onsuccess = function(data) {
+                    install.style.display = 'none';
+                };
+                installApp.onerror = function() {
+                    alert('Install failed\n\n:' + installApp.error.name);
+                };
+            };
+        }
+    };
+}
+else {
+    console.log('Open Web Apps not supported');
+}
+
+// Reload content
+var reload = document.querySelector('#reload');
+if (reload) {
+    reload.onclick = function () {
+        location.reload(true);
+    };
+}
+
+//base.js END
+
+//offline.js START
+    var appCache = window.applicationCache;
+    if (appCache) {
+        appCache.onupdateready = function () {
+            if (confirm('The app has been updated. Do you want to download the latest files? \nOtherwise they will be updated at the next reload.')) {
+                location.reload(true);
+            }
+        };
+
+        var displayStatus = document.querySelector('#online-status');
+        if (displayStatus) {
+            // Using this, since navigator.onLine is very inconcistent and unreliable
+            appCache.onerror = function() {
+                displayStatus.className = 'offline';
+                displayStatus.title = 'Offline';
+            };
+
+        }
+    }
+
+//offline.js END
+
+//webapp.js START
+ /*
         WebActivities:
 
             configure
@@ -436,4 +504,6 @@ cursor.onerror = function () {
             };
         };
     }
-})();
+//webapp.js END
+
+  });

@@ -1,11 +1,25 @@
 <!doctype html>
 <!--[if lt IE 9]> <html class="no-js lt-ie9" lang="en" ng-app="PalSzak.Hexwar"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" ng-app="PalSzak.Hexwar"> <!--<![endif]-->
+
+<!--
+    Exchange the line above for this to enable offline support
+    <html manifest="manifest.appcache">
+
+    Please make your homework before doing this:
+        http://www.alistapart.com/articles/application-cache-is-a-douchebag/
+        http://appcachefacts.info
+
+    This might be necessary to set up on your server, to make sure
+    files are updated when the appcache file itself is:
+        https://github.com/robnyman/Firefox-OS-Boilerplate-App/blob/gh-pages/.htaccess
+ -->
+
 <head>
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Hexwar - Yet another amazing AngularJS app</title>
+  <title>Hexwar - Yet another amazing AngularJS/Firfox OS app</title>
   <meta name="description" content="Yet another amazing AngularJS app">
 
 <!--[if lt IE 9]>
@@ -27,7 +41,7 @@
   <meta property="og:image" content="https://github.global.ssl.fastly.net/images/modules/logos_page/Octocat.png">
 
   <!-- Author of this application -->
-  <link rel="author" href="https://github.com/PalSzak"> 
+  <link rel="author" href="https://github.com/PalSzak">
   <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
 
@@ -40,6 +54,10 @@
 
   <!-- build:css(.tmp) styles/main.min.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/headers.css">
+  <link rel="stylesheet" href="styles/buttons.css">
+  <link rel="stylesheet" href="styles/toolbars.css">
   <!-- endbuild -->
 
 </head>
@@ -72,12 +90,13 @@
   <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="bower_components/angular-touch/angular-touch.js"></script>
   <!-- endbower -->
-  
+
   <!-- endbuild -->
 
   <!-- build:js scripts/app.min.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/controllers/mobile.js"></script>
   <!-- endbuild -->
 
 </body>

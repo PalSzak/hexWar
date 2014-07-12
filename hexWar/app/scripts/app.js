@@ -18,6 +18,9 @@ angular.module('PalSzak.Hexwar', ['ngAnimate', 'ngResource', 'ngRoute', 'ngSanit
       .when('/contact', {
         templateUrl: 'views/contact.html'
       })
+      .when('/mobile', {
+        templateUrl: 'views/mobile.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
