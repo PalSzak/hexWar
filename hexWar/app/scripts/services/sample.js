@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar')
+angular.module('PalSzak.Hexwar');

@@ -37,14 +37,14 @@ module.exports = function(grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      // js: {
-      //   files: ['<%= yo.app %>/scripts/{,*/}*.js'],
-      //   tasks: ['newer:jshint:all']
-      // },
-      jsTest: {
-        files: ['test/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
+      js: {
+        files: ['<%= yo.app %>/scripts/{,*/}*.js'],
+        tasks: ['newer:jshint:all']
       },
+      // jsTest: {
+      //   files: ['test/spec/{,*/}*.js'],
+      //   tasks: ['newer:jshint:test', 'karma']
+      // },
       less: {
         files: ['<%= yo.app %>/styles/{,*/}*.less'],
         tasks: ['less:dev', 'autoprefixer']
@@ -235,42 +235,42 @@ module.exports = function(grunt) {
         root: '<%= yo.app %>'
       }
     },
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yo.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yo.dist %>/images'
-        }]
-      }
-    },
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yo.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yo.dist %>/images'
-        }]
-      }
-    },
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yo.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= yo.dist %>'
-        }]
-      }
-    },
+    // imagemin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yo.app %>/images',
+    //       src: '{,*/}*.{png,jpg,jpeg,gif}',
+    //       dest: '<%= yo.dist %>/images'
+    //     }]
+    //   }
+    // },
+    // svgmin: {
+    //   dist: {
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yo.app %>/images',
+    //       src: '{,*/}*.svg',
+    //       dest: '<%= yo.dist %>/images'
+    //     }]
+    //   }
+    // },
+    // htmlmin: {
+    //   dist: {
+    //     options: {
+    //       collapseWhitespace: true,
+    //       collapseBooleanAttributes: true,
+    //       removeCommentsFromCDATA: true,
+    //       removeOptionalTags: true
+    //     },
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yo.dist %>',
+    //       src: ['*.html', 'views/{,}*.html'],
+    //       dest: '<%= yo.dist %>'
+    //     }]
+    //   }
+    // },*/
 
     // ngmin tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection. It doesn't work on
@@ -335,23 +335,23 @@ module.exports = function(grunt) {
       ],
       dist: [
         'less:dist',
-        'imagemin',
-        'svgmin'
+    //    'imagemin',
+    //    'svgmin'
       ]
     },
 
     // Test settings
-    karma: {
-      options: {
-        configFile: 'test/karma.conf.js',
-      },
-      unit: {
-        singleRun: true
-      },
-      server: {
-        autoWatch: true
-      }
-    }
+  //   karma: {
+  //     options: {
+  //       configFile: 'test/karma.conf.js',
+  //     },
+  //     unit: {
+  //       singleRun: true
+  //     },
+  //     server: {
+  //       autoWatch: true
+  //     }
+  //   }
   });
 
 
@@ -379,8 +379,8 @@ module.exports = function(grunt) {
     'clean:server',
     'concurrent:test',
     'autoprefixer',
-    'connect:test',
-    'karma'
+    'connect:test'//,
+    // 'karma'
   ]);
 
   grunt.registerTask('build', [
@@ -397,7 +397,7 @@ module.exports = function(grunt) {
     'uglify',
     'rev',
     'usemin',
-    'htmlmin'
+    //'htmlmin'
   ]);
 
   grunt.registerTask('default', [
