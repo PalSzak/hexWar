@@ -54,35 +54,23 @@
 
   <!-- build:css(.tmp) styles/main.min.css -->
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/headers.css">
-  <link rel="stylesheet" href="styles/buttons.css">
-  <link rel="stylesheet" href="styles/toolbars.css">
+
   <!-- endbuild -->
 
 </head>
 
 <body ontouchstart ng-controller="MainCtrl">
 
-  <div class="site-wrapper">
-    <div class="site-wrapper-inner">
-      <div class="cover-container">
-        <div class="masthead clearfix">
-          <div class="inner" ng-include="'views/partials/header.html'"></div>
-        </div>
-        <div class="inner cover">
-          <div class="inner" ng-view></div>
-        </div>
-        <div class="mastfoot">
-          <div class="inner" ng-include="'views/partials/footer.html'"></div>
-        </div>
-      </div>
-    </div>
+
+
+  <div>
+    <div class="inner" ng-view></div>
   </div>
 
   <!-- build:js scripts/components.min.js -->
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
+
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -96,7 +84,7 @@
   <!-- build:js scripts/app.min.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
-  <script src="scripts/controllers/mobile.js"></script>
+
   <!-- endbuild -->
 
 </body>
