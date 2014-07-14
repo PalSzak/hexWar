@@ -54,14 +54,13 @@
 
   <!-- build:css(.tmp) styles/main.min.css -->
   <link rel="stylesheet" href="styles/main.css">
-
   <!-- endbuild -->
 
 </head>
 
 <body ontouchstart ng-controller="MainCtrl">
 
-
+  <div class="inner" ng-include="'views/partials/header.html'"></div>
 
   <div>
     <div class="inner" ng-view></div>
@@ -70,7 +69,7 @@
   <!-- build:js scripts/components.min.js -->
   <!-- bower:js -->
   <script src="bower_components/jquery/dist/jquery.js"></script>
-
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -84,7 +83,6 @@
   <!-- build:js scripts/app.min.js -->
   <script src="scripts/app.js"></script>
   <script src="scripts/controllers/main.js"></script>
-
   <!-- endbuild -->
 
 </body>
