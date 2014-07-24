@@ -18,7 +18,7 @@ angular.module('PalSzak.Hexwar')
                     $scope.marker = 'neighbour';
                 } else if(angular.equals($scope.idx, selectService.getSource())) {
                     $scope.marker = 'active';
-                } else if(angular.isUndefined(selectService.getTarget()) && selectService.isNeighbours(selectService.getSource() ,$scope.idx) ){
+                } else if(!angular.isUndefined(selectService.getSource()) && angular.isUndefined(selectService.getTarget()) && selectService.isNeighbours(selectService.getSource() ,$scope.idx) ){
                     $scope.marker = 'neighbour';
                 } else {
                     $scope.marker = '';

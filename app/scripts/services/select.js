@@ -29,6 +29,9 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function(neighbours){
             source = hex;
         } else if( neig(source, hex) ){
             target = hex;
+        } else if(angular.equals(hex, source)){
+            source = undefined;
+            target = undefined;
         } else {
             source = hex;
             target = undefined;
