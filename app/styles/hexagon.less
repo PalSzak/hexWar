@@ -8,6 +8,7 @@
 
 @color-basic: #FF4E00;
 @color-selected: @color-basic - #222222;
+@color-neighbour: @color-basic + #222222;
 
 .hex-row {
     clear: left;
@@ -47,7 +48,7 @@
 
     }
 
-    .hex:focus{
+    .hex.active{
       .left {
         border-right-color: @color-selected;
       }
@@ -58,6 +59,20 @@
 
       .right {
         border-left-color: @color-selected;
+      }
+    }
+
+    .hex.neighbour{
+      .left {
+        border-right-color: @color-neighbour;
+      }
+
+      .middle {
+        background: @color-neighbour;
+      }
+
+      .right {
+        border-left-color: @color-neighbour;
       }
     }
 }
