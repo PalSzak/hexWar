@@ -10,10 +10,7 @@ angular.module('PalSzak.Hexwar')
         replace: 'true',
         controller: function($scope, selectService){
              $scope.select=function(r, q){
-                console.log('He is selected!', r, q);
                 selectService.setClicked({r:r, q:q});
-                $scope.$broadcast('hex-clicked');
-
             };
         },
         compile: function(element, attrs){

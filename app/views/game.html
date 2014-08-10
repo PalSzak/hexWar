@@ -5,21 +5,29 @@
             <hexfield/>
         </div>
     </div>
-    <div class="col-xs-4">Control area
+    <div class="col-xs-4">
         <div ng-controller="MoveController">
-        <div class="row">
-            <div class="col-xs 12">
-                <div class="row">
-                    <div class="col-xs-2">From:</div>
-                    <div class="col-xs-10">{{from}}</div>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-4 control-label">Move</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input ng-disabled="!(!!from && !!to)" class="form-control" type="number" min="0" max="{{from.population}}" step="1" value="{{from.population}}" >
+                        <span class="input-group-addon">pcs</span>
+                    </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-4 control-label">Permanent move</label>
+                <div class="col-sm-8">
+                    <div class="input-group">
+                        <input ng-disabled="!(!!from && !!to)" class="form-control" type="number" min="0" max="100" step="5" value="0" >
+                        <span class="input-group-addon">&nbsp;%&nbsp;</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="row">
-                <div class="col-xs-2">to:</div>
-                <div class="col-xs-10">{{to}}</div>
-            </div>
+                <button type="button" class="btn btn-default btn-block" ng-click="move()">Move</button>
+            </form>
         </div>
     </div>
 </div>

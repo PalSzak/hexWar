@@ -5,6 +5,18 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(){
         return board;
     }
 
+    this.move = function(from,to,amount){
+
+    }
+
+    this.getField = function(idx){
+        if(!!idx && !!idx.q && !!idx.r){
+            return board[idx.q][idx.r];
+        } else {
+            return undefined;
+        }
+    }
+
     //DEMO CONTENT START HERE
     var sampleField = {
         0:{
