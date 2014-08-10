@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar').service( 'selectService', function(neighbours){
+    var observerCallbacks = [];
 
     var source;
     var target;
@@ -36,7 +37,17 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function(neighbours){
             source = hex;
             target = undefined;
         }
-        console.log(source, target);
+        notifyObservers();
+    };
+
+    this.registerObserver = function(callback){
+        observerCallbacks.push(callback);
+    }
+
+    var notifyObservers = function(){
+        angular.forEach(observerCallbacks, function(callback){
+            callback();
+        });
     };
 
 } );

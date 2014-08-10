@@ -279,10 +279,7 @@ angular.module('PalSzak.Hexwar')
             };
         },
         compile: function(element, attrs){
-            console.log(sampleField);
-
             angular.forEach(sampleField, function(row, idx) {
-                console.log(row, idx);
                 element.append('<div hexrow="' + Object.keys(row).length + '" r="'+idx+'"/>');
             });
 

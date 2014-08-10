@@ -14,8 +14,6 @@ angular.module('PalSzak.Hexwar')
             $scope.idx = { r: $scope.r, q: $scope.q};
             $scope.population = $rootScope.field[$scope.r][$scope.q].population;
 
-            console.log('hex',$scope.r,$scope.q,$rootScope.field[$scope.r][$scope.q].population);
-
             $scope.$on('hex-clicked', function(event, args) {
                 if(angular.equals($scope.idx, selectService.getTarget())) {
                     $scope.marker = 'neighbour';
