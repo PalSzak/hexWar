@@ -5,224 +5,259 @@ angular.module('PalSzak.Hexwar')
     var sampleField = {
         0:{
             0:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             1:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             2:{
-                weight: 10,
+                population: 10,
+                owner: 'natural',
+                actions: []
+            },
+            3:{
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             4:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             5:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             6:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             }
         },
         1:{
             0:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             1:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             2:{
-                weight: 10,
+                population: 10,
+                owner: 'natural',
+                actions: []
+            },
+            3:{
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             4:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             5:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             6:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             }
         },
         2:{
             0:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             1:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             2:{
-                weight: 10,
+                population: 10,
+                owner: 'natural',
+                actions: []
+            },
+            3:{
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             4:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             5:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             6:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             }
         },
         3:{
             0:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             1:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             2:{
-                weight: 10,
+                population: 10,
+                owner: 'natural',
+                actions: []
+            },
+            3:{
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             4:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             5:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             6:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             }
         },
         4:{
             0:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             1:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             2:{
-                weight: 10,
+                population: 10,
+                owner: 'natural',
+                actions: []
+            },
+            3:{
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             4:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             5:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             6:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             }
         },
         5:{
             0:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             1:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             2:{
-                weight: 10,
+                population: 10,
+                owner: 'natural',
+                actions: []
+            },
+            3:{
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             4:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             5:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             6:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             }
         },
         6:{
             0:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             1:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             2:{
-                weight: 10,
+                population: 10,
+                owner: 'natural',
+                actions: []
+            },
+            3:{
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             4:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             5:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             },
             6:{
-                weight: 10,
+                population: 10,
                 owner: 'natural',
                 actions: []
             }
@@ -233,8 +268,8 @@ angular.module('PalSzak.Hexwar')
         scope: true,
         restrict: 'E',
         replace: 'true',
-        controller: function($scope, selectService){
-            $scope.field = sampleField;
+        controller: function($rootScope, $scope, selectService){
+            $rootScope.field = sampleField;
 
              $scope.select=function(r, q){
                 console.log('He is selected!', r, q);

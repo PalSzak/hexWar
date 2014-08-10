@@ -10,8 +10,11 @@ angular.module('PalSzak.Hexwar')
             q: '=colum'
         },
         templateUrl: 'views/partials/game/hex.html',
-        controller: function($scope, $timeout, selectService){
+        controller: function($rootScope, $scope, $timeout, selectService){
             $scope.idx = { r: $scope.r, q: $scope.q};
+            $scope.population = $rootScope.field[$scope.r][$scope.q].population;
+
+            console.log('hex',$scope.r,$scope.q,$rootScope.field[$scope.r][$scope.q].population);
 
             $scope.$on('hex-clicked', function(event, args) {
                 if(angular.equals($scope.idx, selectService.getTarget())) {
