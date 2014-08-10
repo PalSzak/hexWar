@@ -11,53 +11,50 @@
 @color-neighbour: @color-basic + #222222;
 
 .hex-row {
-    clear: left;
+  clear: left;
 
-    .even {
-          margin-top: @even-margint-top;
-        }
+  .even {
+    margin-top: @even-margint-top;
+  }
 
-    .hex {
-        float: left;
-        margin-right: @margint-right;
-        margin-bottom: @margint-bottom;
+  .hex {
+    float: left;
+    margin-right: @margint-right;
+    margin-bottom: @margint-bottom;
 
-        .left {
-          float: left;
-          width: 0;
-          border-right: @border-left_right solid @color-basic;
-          border-top: @border-top_bottom solid transparent;
-          border-bottom: @border-top_bottom solid transparent;
-        }
-
-        .middle {
-          float: left;
-          width: @middle-width;
-          height: @middle-height;
-          background: @color-basic;
-
-          .population {
-              display: table-cell;
-              width: @middle-width;
-              height: @middle-height;
-              vertical-align: middle;
-              float: none;
-          }
-
-        }
-
-        .right {
-          float: left;
-          width: 0;
-          border-left: @border-left_right solid @color-basic;
-          border-top: @border-top_bottom solid transparent;
-          border-bottom: @border-top_bottom solid transparent;
-        }
-
-
+    .left {
+      float: left;
+      width: 0;
+      border-right: @border-left_right solid @color-basic;
+      border-top: @border-top_bottom solid transparent;
+      border-bottom: @border-top_bottom solid transparent;
     }
 
-    .hex.active{
+    .middle {
+      position:relative;
+      float: left;
+      width: @middle-width;
+      height: @middle-height;
+      background: @color-basic;
+
+      .population {
+          position:relative;
+          display: table-cell;
+          width: @middle-width;
+          height: @middle-height;
+          vertical-align: middle;
+      }
+    }
+
+    .right {
+      float: left;
+      width: 0;
+      border-left: @border-left_right solid @color-basic;
+      border-top: @border-top_bottom solid transparent;
+      border-bottom: @border-top_bottom solid transparent;
+    }
+
+    &.active{
       .left {
         border-right-color: @color-selected;
       }
@@ -71,7 +68,7 @@
       }
     }
 
-    .hex.neighbour{
+    &.neighbour{
       .left {
         border-right-color: @color-neighbour;
       }
@@ -84,4 +81,63 @@
         border-left-color: @color-neighbour;
       }
     }
+  }
+}
+
+.move {
+  &.bottom{
+    top:1.2*@middle-width;
+  }
+  &.top{
+    top:-@middle-width/2;
+  }
+  &.top-left{
+    transform:rotate(-60deg);
+    left:-0.4333*@middle-width;
+    top:-0.0666*@middle-width;
+  }
+
+  &.top-right{
+    transform:rotate(60deg);
+    left:@middle-width;
+    top:-0.0666*@middle-width;
+  }
+
+  &.bottom-left{
+    transform:rotate(60deg);
+    left:-0.4333*@middle-width;
+    top:0.8333*@middle-width;
+  }
+
+  &.bottom-right{
+    transform:rotate(-60deg);
+    left:@middle-width;
+    top:0.8333*@middle-width;
+  }
+
+  left:@middle-width/4;
+  font-size:0.7em;
+  position: absolute;
+
+  width: @middle-width/2;
+  height:@middle-width;
+  .move-number {
+    background-color: red;
+    width: @middle-width/2;
+    height:@middle-width/2;
+  }
+  .point-down{
+    border: @middle-width/4 solid red;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    width: 0; height: 0;
+  }
+  .point-up{
+    border: @middle-width/4 solid red;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    width: 0; height: 0;
+  }
 }

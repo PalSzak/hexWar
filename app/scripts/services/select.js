@@ -39,6 +39,6 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
     };
 
     this.deselectAll = function(){
-        setClicked(source);
+        this.setClicked(source);
     }
 } );

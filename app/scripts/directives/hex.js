@@ -25,6 +25,10 @@ angular.module('PalSzak.Hexwar')
                     $scope.marker = '';
                 }
             });
+
+            $scope.$on('set-a-move', function(event, args) {
+                console.log('args',args);
+            });
         }
       };
     });

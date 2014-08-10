@@ -1,12 +1,15 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'boardService', function(){
+angular.module('PalSzak.Hexwar').service( 'boardService', function($rootScope){
     this.getBoard = function(){
         return board;
     }
 
     this.move = function(from,to,amount){
-
+        console.log('from',from,'to',to,'amount',amount);
+        //board[from.idx.q][from.idx.r].population = board[from.idx.q][from.idx.r].population - amount;
+        //board[to.idx.q][to.idx.r].population = board[to.idx.q][to.idx.r].population + amount;
+        $rootScope.$broadcast('set-a-move',{from:from,to:to,amount:amount});
     }
 
     this.getField = function(idx){
