@@ -13,12 +13,14 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function($rootScope){
     }
 
     this.getField = function(idx){
-        if(!!idx && !!idx.q && !!idx.r){
+        if(angular.isDefined(idx) && angular.isDefined(idx.q) && angular.isDefined(idx.r)){
             return board[idx.q][idx.r];
         } else {
             return undefined;
         }
     }
+
+    
 
     //DEMO CONTENT START HERE
     var sampleField = {

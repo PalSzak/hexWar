@@ -10,7 +10,7 @@ angular.module('PalSzak.Hexwar')
             q: '=colum'
         },
         templateUrl: 'views/partials/game/hex.html',
-        controller: function($scope, boardService, selectService){
+        controller: function($scope, boardService, selectService, neighbours, neighbourName){
             $scope.idx = { r: $scope.r, q: $scope.q};
             $scope.population = boardService.getBoard()[$scope.r][$scope.q].population;
 
@@ -27,8 +27,22 @@ angular.module('PalSzak.Hexwar')
             });
 
             $scope.$on('set-a-move', function(event, args) {
-                console.log('args',args);
+                if(angular.equals(args.from, $scope.idx)) {
+                    console.log('args',args, $scope.idx);
+                    alma(args.to, args.amount);
+                }
             });
+
+             function alma(neighbour, amount){
+                console.log('in', neighbourName);
+                neighbours[($scope.q+1) %2].forEach(function(offset) {
+                    if($scope.r === neighbour.r+offset[0]  && $scope.q === neighbour.q + offset[1]){
+                        console.log(neighbourName[($scope.q+1) %2][offset[0]+1][offset[1]+1], amount)
+                        $scope[neighbourName[($scope.q+1) %2][offset[0]+1][offset[1]+1]] = amount;
+                        console.log($scope[neighbourName[($scope.q+1) %2][offset[0]+1][offset[1]+1]]);
+                    }
+                });
+            };
         }
       };
     });
