@@ -1,26 +1,46 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar').service( 'boardService', function($rootScope){
+    var actions = new Map();
+
     this.getBoard = function(){
         return board;
-    }
+    };
 
     this.move = function(from,to,amount){
-        console.log('from',from,'to',to,'amount',amount);
-        //board[from.idx.q][from.idx.r].population = board[from.idx.q][from.idx.r].population - amount;
-        //board[to.idx.q][to.idx.r].population = board[to.idx.q][to.idx.r].population + amount;
-        $rootScope.$broadcast('set-a-move',{from:from,to:to,amount:amount});
-    }
+        var actionsFrom, action;
+        if(angular.isDefined(actions.get(from))){
+            actionsFrom = actions.get(from);
+        } else {
+            actionsFrom = new Map();
+        }
 
-    this.getField = function(idx){
-        if(angular.isDefined(idx) && angular.isDefined(idx.q) && angular.isDefined(idx.r)){
-            return board[idx.q][idx.r];
+        if(angular.isDefined(actionsFrom.get(to))){
+            action = actionsFrom.get(to);
+        } else {
+            action = {};
+        }
+
+        action.amount = amount;
+        getField(from).population -= amount;
+        $rootScope.$broadcast('set-a-move',{from:from,to:to,amount:amount});
+    };
+
+    this.getAction = function(from,to){
+        if(angular.isDefined(actions.get(from)) && angular.isDefined(actions.get(from).get(to))){
+            return actions.get(from).get(to);
         } else {
             return undefined;
         }
-    }
+    };
 
-    
+    var getField = this.getField = function (idx){
+        if(angular.isDefined(idx) && angular.isDefined(idx.q) && angular.isDefined(idx.r)){
+            return board[idx.r][idx.q];
+        } else {
+            return undefined;
+        }
+    };
 
     //DEMO CONTENT START HERE
     var sampleField = {

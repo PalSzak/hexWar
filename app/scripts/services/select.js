@@ -22,7 +22,6 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
         return isNeighbour;
     };
 
-
     this.setClicked = function(hex){
         if(angular.isUndefined(source)){
             source = hex;
@@ -40,5 +39,5 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
 
     this.deselectAll = function(){
         this.setClicked(source);
-    }
+    };
 } );
