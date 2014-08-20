@@ -5,8 +5,8 @@ angular.module('PalSzak.Hexwar')
   .constant('state')
   .constant('neighbourName',
     [
-      [['move_bottom_right','move_bottom','move_bottom_left'],['move_top_right','IMPOSIBLE','move_top_left'],['IMPOSIBLE','move_top','IMPOSIBLE']],
-      [['IMPOSIBLE','move_bottom','IMPOSIBLE'],['move_bottom_right','IMPOSIBLE','move_bottom_left'],['move_top_right','move_top','move_top_left']]
+      [['bottomRight','bottom','bottomLeft'],['topRight','IMPOSIBLE','topLeft'],['IMPOSIBLE','top','IMPOSIBLE']],
+      [['IMPOSIBLE','bottom','IMPOSIBLE'],['bottomRight','IMPOSIBLE','bottomLeft'],['topRight','top','topLeft']]
     ]
   ).constant('neighbours',
     [
