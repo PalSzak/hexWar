@@ -1,8 +1,13 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, neighbours){
+angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, boardService, neighbours, neighbourName){
     var source;
     var target;
+    var nameOfNeighbours;
+
+    this.getNameOfNeighbour = function(){
+        return nameOfNeighbours;
+    };
 
     this.getSource = function(){
         return source;
@@ -12,10 +17,11 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
         return target;
     };
 
-    var neig = this.isNeighbours  = function (hex1, hex2){
+    var isNeighbours = this.isNeighbours = function (from , to){
         var isNeighbour = false;
-        neighbours[(hex1.q+1) %2].forEach(function(offset) {
-            if(hex1.r === hex2.r+offset[0]  && hex1.q === hex2.q + offset[1]){
+        neighbours[(from.q+1) %2].forEach(function(offset) {var shifted = {r: to.r + offset[0], q: to.q + offset[1]};
+            if(angular.equals(from, shifted)){
+                nameOfNeighbours = neighbourName[(from.q+1) %2][offset[0]+1][offset[1]+1];
                 isNeighbour = true;
             }
         });
@@ -23,18 +29,20 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
     };
 
     this.setClicked = function(hex){
-        if(angular.isUndefined(source)){
-            source = hex;
-        } else if( neig(source, hex) ){
-            target = hex;
-        } else if(angular.equals(hex, source)){
-            source = undefined;
-            target = undefined;
-        } else {
-            source = hex;
-            target = undefined;
+        if(boardService.getField(hex).owner !== 'empty'){
+            if(angular.isUndefined(source)){
+                source = hex;
+            } else if( isNeighbours(source, hex) ){
+                target = hex;
+            } else if(angular.equals(hex, source)){
+                source = undefined;
+                target = undefined;
+            } else {
+                source = hex;
+                target = undefined;
+            }
+            $rootScope.$broadcast('selection-changed');
         }
-        $rootScope.$broadcast('selection-changed');
     };
 
     this.deselectAll = function(){

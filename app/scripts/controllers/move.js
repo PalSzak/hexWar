@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar')
-    .controller('MoveController', function($scope, selectService, boardService) {
+    .controller('MoveController', function($scope, selectService, boardService, turnService) {
         $scope.$on('selection-changed', function(event, args) {
             $scope.from = boardService.getField(selectService.getSource());
             $scope.to = boardService.getField(selectService.getTarget());
             if(angular.isDefined($scope.from) && angular.isDefined($scope.to)) {
                 $scope.max = $scope.from;
-                if(angular.isDefined( $scope.from[boardService.getNameOfNeighbour(selectService.getSource(), selectService.getTarget())] )){
-                    $scope.moveCount = $scope.from[boardService.getNameOfNeighbour(selectService.getSource(), selectService.getTarget())];
+                if(angular.isDefined( $scope.from[selectService.getNameOfNeighbour()] )){
+                    $scope.moveCount = $scope.from[selectService.getNameOfNeighbour()];
                     $scope.max += $scope.moveCount;
                 } else {
                     $scope.moveCount = angular.isDefined($scope.from)? $scope.from.population : undefined;
@@ -20,7 +20,7 @@ angular.module('PalSzak.Hexwar')
 
         $scope.move = function(){
             console.log('move',$scope.moveCount);
-            boardService.move(selectService.getSource(),selectService.getTarget(),$scope.moveCount);
+            turnService.move(selectService.getSource(),selectService.getTarget(),$scope.moveCount);
             selectService.deselectAll();
         };
   });
