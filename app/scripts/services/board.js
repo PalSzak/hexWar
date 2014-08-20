@@ -1,36 +1,25 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'boardService', function($rootScope){
-    var actions = new Map();
-
+angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, neighbourName){
     this.getBoard = function(){
         return board;
     };
 
     this.move = function(from,to,amount){
-        var actionsFrom, action;
-        if(angular.isDefined(actions.get(from))){
-            actionsFrom = actions.get(from);
-        } else {
-            actionsFrom = new Map();
-        }
-
-        if(angular.isDefined(actionsFrom.get(to))){
-            action = actionsFrom.get(to);
-        } else {
-            action = {};
-        }
-
-        action.amount = amount;
-        getField(from).population -= amount;
-        $rootScope.$broadcast('set-a-move',{from:from,to:to,amount:amount});
+        var moveingDiff = angular.isDefined(getField(from)[getNameOfNeighbour(from,to)]) ? amount - getField(from)[getNameOfNeighbour(from,to)] : amount;
+        getField(from)[getNameOfNeighbour(from,to)] = amount;
+        getField(from).population -= moveingDiff;
+        console.log(getNameOfNeighbour(from,to), getField(from), getField(from)[getNameOfNeighbour(from,to)]);
     };
 
-    this.getAction = function(from,to){
-        if(angular.isDefined(actions.get(from)) && angular.isDefined(actions.get(from).get(to))){
-            return actions.get(from).get(to);
-        } else {
-            return undefined;
+    var getNameOfNeighbour = this.getNameOfNeighbour = function(from, to){
+        var length = neighbours[(from.q+1) %2].length;
+        for(var i = 0; i<length; i++) { 
+            var offset = neighbours[(from.q+1) %2][i];
+            var shifted = {r: to.r + offset[0], q: to.q + offset[1]};
+            if(angular.equals(from, shifted)){
+                return neighbourName[(from.q+1) %2][offset[0]+1][offset[1]+1];
+            }
         }
     };
 

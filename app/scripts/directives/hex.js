@@ -25,21 +25,6 @@ angular.module('PalSzak.Hexwar')
                     $scope.marker = '';
                 }
             });
-
-            $scope.$on('set-a-move', function(event, args) {
-                if(angular.equals(args.from, $scope.idx)) {
-                    setMoveingAmount(args.to, args.amount);
-                }
-            });
-
-             function setMoveingAmount(neighbour, amount){
-                console.log('in', neighbourName);
-                neighbours[($scope.q+1) %2].forEach(function(offset) {
-                    if($scope.r === neighbour.r+offset[0]  && $scope.q === neighbour.q + offset[1]){
-                        $scope[neighbourName[($scope.q+1) %2][offset[0]+1][offset[1]+1]] = amount;
-                    }
-                });
-            }
         }
       };
     });
