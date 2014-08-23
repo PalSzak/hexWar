@@ -6,11 +6,24 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
     };
 
     var getField = this.getField = function (idx){
-        if(angular.isDefined(idx) && angular.isDefined(idx.q) && angular.isDefined(idx.r)){
-            return board[idx.r][idx.q];
+        if(angular.isDefined(idx) && angular.isDefined(idx.c) && angular.isDefined(idx.r)){
+            return board[idx.r][idx.c];
         } else {
             return undefined;
         }
+    };
+
+    this.getNameOfNeighbour = function (from , to){
+        var nameOfNeighbour;
+        if(angular.isDefined(from) && angular.isDefined(to)){
+            neighbours[(from.idx.c+1) %2].forEach(function(offset) {
+                var shiftedIdx = {r: to.idx.r + offset[0], c: to.idx.c + offset[1]};
+                if(angular.equals(from.idx, shiftedIdx)){
+                    nameOfNeighbour = neighbourName[(from.idx.c+1) %2][offset[0]+1][offset[1]+1];
+                }
+            });
+        }
+        return nameOfNeighbour;
     };
 
     //DEMO CONTENT START HERE
@@ -227,4 +240,14 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
         },
     };
     var board = sampleField;
+    function init(){
+        var rLength = Object.keys(board).length;
+        for(var r = 0; r< rLength; r++){
+            var cLength = Object.keys(board[r]).length;
+            for(var c = 0; c< cLength; c++){
+                board[r][c].idx = {r:r, c:c};
+            }
+        }
+    }
+    init();
 } );

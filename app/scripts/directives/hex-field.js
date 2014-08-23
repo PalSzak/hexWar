@@ -9,8 +9,8 @@ angular.module('PalSzak.Hexwar')
         restrict: 'E',
         replace: 'true',
         controller: function($scope, selectService){
-             $scope.select=function(r, q){
-                selectService.setClicked({r:r, q:q});
+             $scope.select=function(r, c){
+                selectService.setClicked({r:r, c:c});
             };
         },
         compile: function(element, attrs){
