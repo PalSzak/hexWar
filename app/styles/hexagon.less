@@ -6,10 +6,88 @@
 @margint-bottom: -1 * @middle-width * 0.8333; //-50px
 @even-margint-top: @middle-width * 0.8833;//53px
 
-@color-basic: #FF4E00;
-@color-selected: @color-basic - #222222;
-@color-neighbour: @color-basic + #222222;
+.hex-color(@color-basic) {
+  @color-selected: @color-basic - #222222;
+  @color-neighbour: @color-basic + #222222;
+  color: #F4F4F4;
 
+  .left {
+      border-right-color: @color-basic;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+    }
+    .middle {
+      background: @color-basic;
+      .move {
+        .move-number {
+          background-color: @color-selected;
+        }
+        .point-down{
+          border-color: transparent;
+          border-top-color: @color-selected;
+        }
+        .point-up{
+          border-color: transparent;
+          border-bottom-color: @color-selected;
+        }
+      }
+    }
+    .right {
+      border-left-color: @color-basic;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+    }
+    &.active{
+      .left {
+        border-right-color: @color-selected;
+      }
+      .middle {
+        background: @color-selected;
+      }
+      .right {
+        border-left-color: @color-selected;
+      }
+    }
+    &.neighbour{
+      .left {
+        border-right-color: @color-neighbour;
+      }
+      .middle {
+        background: @color-neighbour;
+      }
+      .right {
+        border-left-color: @color-neighbour;
+      }
+    }
+}
+
+
+//color:
+.hex-row {
+  .hex {
+    &.natural{
+      .hex-color(#858585);
+    }
+    &.player1{
+      .hex-color(#FF4E00);
+    }
+    &.player2{
+      .hex-color(#5F9B0A);
+    }
+    &.player3{
+      .hex-color(#00AACC);
+    }
+    &.player4{
+      .hex-color(#B90000);
+    }
+    &.empty{
+      opacity: 0;
+    }  
+  }
+}
+
+
+// size and positioning:
 .hex-row {
   clear: left;
 
@@ -25,9 +103,9 @@
     .left {
       float: left;
       width: 0;
-      border-right: @border-left_right solid @color-basic;
-      border-top: @border-top_bottom solid transparent;
-      border-bottom: @border-top_bottom solid transparent;
+      border-right: @border-left_right solid;
+      border-top: @border-top_bottom solid;
+      border-bottom: @border-top_bottom solid;
     }
 
     .middle {
@@ -35,7 +113,6 @@
       float: left;
       width: @middle-width;
       height: @middle-height;
-      background: @color-basic;
 
       .population {
           position:relative;
@@ -44,105 +121,67 @@
           height: @middle-height;
           vertical-align: middle;
       }
+      .move {
+        z-index:1;
+        &.bottom{
+          top:1.2*@middle-width;
+        }
+        &.top{
+          top:-@middle-width/2;
+        }
+        &.top-left{
+          transform:rotate(-60deg);
+          left:-0.4333*@middle-width;
+          top:-0.0666*@middle-width;
+        }
+
+        &.top-right{
+          transform:rotate(60deg);
+          left:@middle-width;
+          top:-0.0666*@middle-width;
+        }
+
+        &.bottom-left{
+          transform:rotate(60deg);
+          left:-0.4333*@middle-width;
+          top:0.8333*@middle-width;
+        }
+
+        &.bottom-right{
+          transform:rotate(-60deg);
+          left:@middle-width;
+          top:0.8333*@middle-width;
+        }
+
+        left:@middle-width/4;
+        font-size:0.7em;
+        position: absolute;
+
+        width: @middle-width/2;
+        height:@middle-width;
+        .move-number {
+          width: @middle-width/2;
+          height:@middle-width/2;
+        }
+        .point-down{
+          border: @middle-width/4 solid;
+          width: 0; height: 0;
+        }
+        .point-up{
+          border: @middle-width/4 solid;
+          width: 0; height: 0;
+        }
+      }
     }
 
     .right {
       float: left;
       width: 0;
-      border-left: @border-left_right solid @color-basic;
-      border-top: @border-top_bottom solid transparent;
-      border-bottom: @border-top_bottom solid transparent;
-    }
-
-    &.active{
-      .left {
-        border-right-color: @color-selected;
-      }
-
-      .middle {
-        background: @color-selected;
-      }
-
-      .right {
-        border-left-color: @color-selected;
-      }
-    }
-
-    &.neighbour{
-      .left {
-        border-right-color: @color-neighbour;
-      }
-
-      .middle {
-        background: @color-neighbour;
-      }
-
-      .right {
-        border-left-color: @color-neighbour;
-      }
-    }
-
-    &.empty{
-      opacity: 0;
+      border-left: @border-left_right solid;
+      border-top: @border-top_bottom solid;
+      border-bottom: @border-top_bottom solid;
     }
   }
 }
 
-.move {
-  z-index:1;
-  &.bottom{
-    top:1.2*@middle-width;
-  }
-  &.top{
-    top:-@middle-width/2;
-  }
-  &.top-left{
-    transform:rotate(-60deg);
-    left:-0.4333*@middle-width;
-    top:-0.0666*@middle-width;
-  }
 
-  &.top-right{
-    transform:rotate(60deg);
-    left:@middle-width;
-    top:-0.0666*@middle-width;
-  }
-
-  &.bottom-left{
-    transform:rotate(60deg);
-    left:-0.4333*@middle-width;
-    top:0.8333*@middle-width;
-  }
-
-  &.bottom-right{
-    transform:rotate(-60deg);
-    left:@middle-width;
-    top:0.8333*@middle-width;
-  }
-
-  left:@middle-width/4;
-  font-size:0.7em;
-  position: absolute;
-
-  width: @middle-width/2;
-  height:@middle-width;
-  .move-number {
-    background-color: red;
-    width: @middle-width/2;
-    height:@middle-width/2;
-  }
-  .point-down{
-    border: @middle-width/4 solid red;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    width: 0; height: 0;
-  }
-  .point-up{
-    border: @middle-width/4 solid red;
-    border-left-color: transparent;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    width: 0; height: 0;
-  }
-}

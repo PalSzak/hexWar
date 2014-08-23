@@ -18,11 +18,11 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
         0:{
             0:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player1'
             },
             1:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player1'
             },
             2:{
                 population: 10,
@@ -38,21 +38,21 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             5:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player2'
             },
             6:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player2'
             }
         },
         1:{
             0:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player1'
             },
             1:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player1'
             },
             2:{
                 population: 10,
@@ -68,11 +68,11 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             5:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player2'
             },
             6:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player2'
             }
         },
         2:{
@@ -168,11 +168,11 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
         5:{
             0:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player4'
             },
             1:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player4'
             },
             2:{
                 population: 10,
@@ -188,21 +188,21 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             5:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player3'
             },
             6:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player3'
             }
         },
         6:{
             0:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player4'
             },
             1:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player4'
             },
             2:{
                 population: 10,
@@ -218,11 +218,11 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             5:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player3'
             },
             6:{
                 population: 10,
-                owner: 'natural'
+                owner: 'player3'
             }
         },
     };

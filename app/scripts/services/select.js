@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, boardService, neighbours, neighbourName){
+angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, boardService, playerService, neighbours, neighbourName){
     var source;
     var target;
     var nameOfNeighbours;
@@ -29,19 +29,24 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
     };
 
     this.setClicked = function(hex){
-        if(boardService.getField(hex).owner !== 'empty'){
-            if(angular.isUndefined(source)){
-                source = hex;
-            } else if( isNeighbours(source, hex) ){
-                target = hex;
-            } else if(angular.equals(hex, source)){
+        if(boardService.getField(hex).owner !== 'empty' ){
+            var change = false;
+            if(angular.equals(hex, source)){
                 source = undefined;
                 target = undefined;
-            } else {
+                change = true;
+            } else if(angular.isDefined(source) && isNeighbours(source, hex)){
+                target = hex;
+                change = true;
+            } else if(boardService.getField(hex).owner ===  playerService.getPlayer()){
                 source = hex;
                 target = undefined;
+                change = true;
             }
-            $rootScope.$broadcast('selection-changed');
+
+            if(change){
+                $rootScope.$broadcast('selection-changed');
+            }
         }
     };
 

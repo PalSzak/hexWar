@@ -13,6 +13,7 @@ angular.module('PalSzak.Hexwar')
         controller: function($scope, boardService, selectService, neighbours, neighbourName){
             $scope.field = boardService.getBoard()[$scope.r][$scope.q];
             $scope.idx = { r: $scope.r, q: $scope.q};
+            $scope.player = $scope.field.owner;
             if($scope.field.owner === 'empty'){
                 $scope.marker = 'empty';
             } else {
