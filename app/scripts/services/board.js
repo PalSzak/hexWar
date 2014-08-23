@@ -69,15 +69,15 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             2:{
                 population: 10,
-                owner: 'natural'
+                owner: 'empty'
             },
             3:{
                 population: 10,
-                owner: 'natural'
+                owner: 'empty'
             },
             4:{
                 population: 10,
-                owner: 'natural'
+                owner: 'empty'
             },
             5:{
                 population: 10,
@@ -99,7 +99,7 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             2:{
                 population: 10,
-                owner: 'empty'
+                owner: 'natural'
             },
             3:{
                 population: 10,
@@ -133,7 +133,7 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             3:{
                 population: 10,
-                owner: 'natural'
+                owner: 'empty'
             },
             4:{
                 population: 10,
@@ -163,7 +163,7 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             3:{
                 population: 10,
-                owner: 'natural'
+                owner: 'empty'
             },
             4:{
                 population: 10,
@@ -181,11 +181,11 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
         5:{
             0:{
                 population: 10,
-                owner: 'player4'
+                owner: 'natural'
             },
             1:{
                 population: 10,
-                owner: 'player4'
+                owner: 'natural'
             },
             2:{
                 population: 10,
@@ -201,14 +201,44 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             5:{
                 population: 10,
+                owner: 'natural'
+            },
+            6:{
+                population: 10,
+                owner: 'natural'
+            }
+        },
+        6:{
+            0:{
+                population: 10,
+                owner: 'natural'
+            },
+            1:{
+                population: 10,
+                owner: 'player4'
+            },
+            2:{
+                population: 10,
+                owner: 'natural'
+            },
+            3:{
+                population: 10,
+                owner: 'empty'
+            },
+            4:{
+                population: 10,
+                owner: 'natural'
+            },
+            5:{
+                population: 10,
                 owner: 'player3'
             },
             6:{
                 population: 10,
-                owner: 'player3'
+                owner: 'natural'
             }
         },
-        6:{
+        7:{
             0:{
                 population: 10,
                 owner: 'player4'
@@ -219,7 +249,7 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             2:{
                 population: 10,
-                owner: 'natural'
+                owner: 'empty'
             },
             3:{
                 population: 10,
@@ -227,7 +257,7 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
             },
             4:{
                 population: 10,
-                owner: 'natural'
+                owner: 'empty'
             },
             5:{
                 population: 10,
@@ -238,6 +268,36 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function(neighbours, n
                 owner: 'player3'
             }
         },
+        8:{
+            0:{
+                population: 10,
+                owner: 'player4'
+            },
+            1:{
+                population: 10,
+                owner: 'empty'
+            },
+            2:{
+                population: 10,
+                owner: 'natural'
+            },
+            3:{
+                population: 10,
+                owner: 'empty'
+            },
+            4:{
+                population: 10,
+                owner: 'natural'
+            },
+            5:{
+                population: 10,
+                owner: 'empty'
+            },
+            6:{
+                population: 10,
+                owner: 'player3'
+            }
+        }
     };
     var board = sampleField;
     function init(){
