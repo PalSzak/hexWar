@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/home/fern/projects/hexWar"
+			"path": "/home/fern/projects/hexWar",
+			"folder_exclude_patterns": [".tmp", "node_modules", "bower_components", "dist"]
 		}
 	]
 }
