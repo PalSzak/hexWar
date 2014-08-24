@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, boardService, playerService){
+angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, fieldHelper, playerService){
     var source;
     var target;
     var nameOfNeighbours;
@@ -17,31 +17,29 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
         return target;
     };
 
-    this.setClicked = function(hexCoord){
-        var hexField = boardService.getField(hexCoord);
-        if(hexField.owner !== 'empty' ){
-            var change = false;
-            nameOfNeighbours = boardService.getNameOfNeighbour(source, hexField);
-            if(angular.equals(hexField, source)){
-                source = undefined;
-                target = undefined;
-                change = true;
-            } else if(angular.isDefined(source) && nameOfNeighbours){
-                target = hexField;
-                change = true;
-            } else if(hexField.owner ===  playerService.getPlayer()){
-                source = hexField;
-                target = undefined;
-                change = true;
-            }
+    this.setClicked = function(clickedHex){
+        var change = false;
+        nameOfNeighbours = fieldHelper.getNameOfNeighbour(source, clickedHex);
 
-            if(change){
-                $rootScope.$broadcast('selection-changed');
-            }
+        if(angular.equals(clickedHex, source)){
+            source = undefined;
+            target = undefined;
+            change = true;
+        } else if(angular.isDefined(source) && nameOfNeighbours){
+            target = clickedHex;
+            change = true;
+        } else if(clickedHex.owner ===  playerService.getPlayer()){
+            source = clickedHex;
+            target = undefined;
+            change = true;
+        }
+
+        if(change){
+            $rootScope.$broadcast('selection-changed');
         }
     };
 
     this.deselectAll = function(){
-        this.setClicked(source.idx);
+        this.setClicked(source);
     };
 } );
