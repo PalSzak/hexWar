@@ -1,4 +1,4 @@
-# Hexwar
+# HexWar
 
 Yet another amazing AngularJS app
 

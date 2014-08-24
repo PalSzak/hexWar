@@ -1,12 +1,12 @@
 {
-  "name": "hexWar",
+  "name": "HexWar",
   "version": "0.1.0",
-  "description": "Yet another amazing AngularJS app",
+  "description": "HexWar is a turn based strategy game for FirefoxOS and web.",
   "keywords": [
-    "angular"
+    "TBS", "game"
   ],
-  "homepage": "https://github.com/PalSzak/hex-war",
-  "bugs": "https://github.com/PalSzak/hex-war/issues",
+  "homepage": "https://github.com/PalSzak/hexWar",
+  "bugs": "https://github.com/PalSzak/hexWar/issues",
   "author": {
     "name": "Pál Szák",
     "email": "szak.pal@gmail.com",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/PalSzak/hex-war.git"
+    "url": "https://github.com/PalSzak/hexWar.git"
   },
   "licenses": [
     {
