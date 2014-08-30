@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Yet another amazing AngularJS app",
   "keywords": [
-    "TBS", "game"
+    "TBS",
+    "game"
   ],
   "homepage": "https://github.com/PalSzak/hexWar",
   "bugs": "https://github.com/PalSzak/hexWar/issues",
@@ -30,6 +31,7 @@
     "angular-sanitize": "^1.3.0-beta.15",
     "angular-touch": "^1.3.0-beta.15",
     "angular": "^1.3.0-beta.15",
-    "jquery": "~2.1.1"
+    "jquery": "~2.1.1",
+    "angular-bootstrap": "~0.11.0"
   }
 }

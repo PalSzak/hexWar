@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar', ['ngAnimate', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch'])
+angular.module('PalSzak.Hexwar', ['ngAnimate', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch', 'ui.bootstrap'])
   .config(function($locationProvider, $routeProvider) {
 
     $locationProvider.html5Mode(false);
