@@ -6,7 +6,7 @@ angular.module('PalSzak.Hexwar')
         $scope.gamemodel ={};
         $scope.gamemodel.map = maps[0];
         $scope.newGame = function(){
-        	playerService.initGame($scope.gamemodel);
+            playerService.initGame($scope.gamemodel);
             boardService.initGame($scope.gamemodel);
         };
   });
