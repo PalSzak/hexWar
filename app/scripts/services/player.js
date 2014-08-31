@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar').service( 'playerService', function(){
-    var players = [];
-    var turn;
+    var players, turn;
 
     this.getPlayers = function() {
         return players;
@@ -12,7 +11,15 @@ angular.module('PalSzak.Hexwar').service( 'playerService', function(){
         return players[turn%players.length];
     };
 
+    this.removePlayer = function(player) {
+        var index = players.indexOf(player);
+        if(index > -1){
+            players.splice(index, 1);
+        }
+    };
+
     this.initGame = function(gameModel) {
+        players = [];
         turn = -1;
         for(var player = 1; player<=gameModel.map.maxPlayer; player++){
             if(gameModel[player].type !== 'none'){

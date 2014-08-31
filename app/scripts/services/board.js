@@ -51,6 +51,21 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function($injector){
             }
         }
         return fields;
-    }
+    };
+
+    this.getStatistic = function(player){
+        var statistic = {};
+        for(var r = 0; r< rLength; r++){
+            for(var c = 0; c< cLength; c++){
+                var field = board[r][c];
+                if(angular.isDefined(statistic[field.owner])){
+                    statistic[field.owner]++;
+                } else {
+                    statistic[field.owner] = 1;
+                }
+            }
+        }
+        return statistic;
+    };
 
 } );

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'gameService', function(playerService, boardService, selectService, fieldHelper){
+angular.module('PalSzak.Hexwar').service( 'gameService', function($modal, playerService, boardService, selectService, fieldHelper){
     var neighbourNameList = ['bottomRight','bottom','bottomLeft','topRight','topLeft','top'];
 
     this.initGame = function(gameModel) {
@@ -12,9 +12,7 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function(playerService,
     var nextTurn = this.nextTurn = function() {
         selectService.deselectAll();
         var player = playerService.getPlayer();
-        playerService.nextTurn();
 
-        console.log(player);
         if(angular.isDefined(player)){
             boardService.getFieldOf(player.id).forEach(function(field) {
                 populationGrow(field);
@@ -27,13 +25,29 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function(playerService,
                 });
             });
         }
+
+        var stat = boardService.getStatistic();
+
+        playerService.getPlayers().forEach(function(player){
+            if(angular.isUndefined(stat[player.id])){
+                playerService.removePlayer(player);
+            }
+        });
+
+        console.log(playerService.getPlayers(), playerService.getPlayers().length);
+        if(playerService.getPlayers().length === 1){
+            gameEnd( playerService.getPlayers()[0], 500); 
+        }
+
+        playerService.nextTurn();
+
     };
 
     function move(player, field, amount){
         if(field.owner === player.id){
             field.population += amount;
         } else {
-            attack(player, field, amount)
+            attack(player, field, amount);
         }
     }
 
@@ -47,6 +61,29 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function(playerService,
 
     function populationGrow(field){
         field.population++;
+    }
+
+    function gameEnd(winner){
+        $modal.open({
+            templateUrl: 'views/partials/modal/end.html',
+            controller: function ($scope, $modalInstance, winner) {
+                $scope.winner = winner;
+
+                $scope.ok = function () {
+                    $modalInstance.close('newGame');
+                };
+
+                $scope.cancel = function () {
+                    $modalInstance.dismiss('cancel');
+                };
+            },
+            size: 'lg',
+            resolve: {
+                winner: function () {
+                    return winner;
+                }
+            }
+        });
     }
 
 } );
