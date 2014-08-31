@@ -6,25 +6,25 @@
               <div class="form-group">
                 <label for="selectmap" class="col-sm-2 control-label">Map</label>
                 <div class="col-sm-10">
-                              <select id="selectmap" class="form-control" ng-model="gamemodel.map" ng-options="map.name group by map.maxPlayerLabel for map in maps">
+                              <select id="selectmap" class="form-control" ng-model="gameModel.map" ng-options="map.name group by map.maxPlayerLabel for map in maps">
   </select>
                 </div>
               </div>
 
             <span ng-repeat="idx in [1,2,3,4]">
-            <fieldset ng-disabled="gamemodel.map.maxPlayer < idx">
+            <fieldset ng-disabled="gameModel.map.maxPlayer < idx">
                 <div class="form-group">
                       <label for="player{{idx}}" class="col-sm-2 control-label">Player {{idx}}</label>
                       <div class="col-sm-10 row">
                           <div class= "col-sm-4">
-                            <div class="btn-group" ng-init="gamemodel[idx].type = (idx === 1 ? 'player' : 'ai' )">
-                                <label class="btn btn-default" ng-model="gamemodel[idx].type" btn-radio="'none'">None</label>
-                                <label class="btn btn-default" ng-model="gamemodel[idx].type" btn-radio="'player'">Player</label>
-                                <label class="btn btn-default" ng-model="gamemodel[idx].type" btn-radio="'ai'">AI</label>
+                            <div class="btn-group" ng-init="gameModel[idx].type = (idx === 1 ? 'player' : 'ai' )">
+                                <label class="btn btn-default" ng-model="gameModel[idx].type" btn-radio="'none'">None</label>
+                                <label class="btn btn-default" ng-model="gameModel[idx].type" btn-radio="'player'">Player</label>
+                                <label class="btn btn-default" ng-model="gameModel[idx].type" btn-radio="'ai'">AI</label>
                             </div>
                         </div>
                         <div class="col-sm-8">
-                            <input id="player{{idx}}" ng-disabled="gamemodel[idx].type === 'none'" class="form-control" type="text" ng-init="gamemodel[idx].name = 'Player '+idx" ng-model="gamemodel[idx].name" >
+                            <input id="player{{idx}}" ng-disabled="gameModel[idx].type === 'none'" class="form-control" type="text" ng-init="gameModel[idx].name = 'Player '+idx" ng-model="gameModel[idx].name" >
                         </div>
                     </div>
                 </div>

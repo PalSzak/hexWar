@@ -13,4 +13,21 @@ angular.module('PalSzak.Hexwar').service( 'fieldHelper', function(neighbours, ne
         }
         return nameOfNeighbour;
     };
+
+    this.getNeighbour = function (field, nameOfNeighbour){
+        var neighbourIdx;
+        var names = neighbourName[(field.idx.c+1) %2];
+        search: for(var i = 0; i< 3; i++){
+            for(var j = 0; j<3; j++){
+                if(names[i][j] === nameOfNeighbour){
+                    neighbourIdx = {
+                        r: field.idx.r - (i -1),
+                        c: field.idx.c - (j -1)
+                    };
+                    break search;
+                }
+            }
+        }
+        return neighbourIdx;
+    };
 } );

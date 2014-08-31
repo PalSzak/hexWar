@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar')
-    .controller('MoveController', function($scope, selectService) {
+    .controller('MoveController', function($scope, gameService, selectService) {
         $scope.$on('selection-changed', function(event, args) {
             $scope.from = selectService.getSource();
             $scope.to = selectService.getTarget();
@@ -24,5 +24,9 @@ angular.module('PalSzak.Hexwar')
             $scope.from[selectService.getNameOfNeighbour()] = $scope.moveCount;
             $scope.from.population -= moveingDiff;
             selectService.deselectAll();
+        };
+
+        $scope.turn = function(){
+            gameService.nextTurn();
         };
   });

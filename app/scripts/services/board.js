@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar').service( 'boardService', function($injector){
-    var board;
+    var board, rLength, cLength;
 
     this.getRowCount = function(){
-        return Object.keys(board).length;
+        return rLength;
     };
 
     this.getColumnCount = function(){
-        return Object.keys(board[0]).length;
+        return cLength;
     };
 
     var getField = this.getField = function (idx){
@@ -21,9 +21,9 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function($injector){
 
     function init(map, gameModel){
         board = map;
-        var rLength = Object.keys(board).length;
+        rLength = Object.keys(board).length;
+        cLength = Object.keys(board[0]).length;
         for(var r = 0; r< rLength; r++){
-            var cLength = Object.keys(board[r]).length;
             for(var c = 0; c< cLength; c++){
                 board[r][c].idx = {r:r, c:c};
                 for(var i =1; i<=gameModel.map.maxPlayer; i++){
@@ -38,6 +38,19 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function($injector){
     this.initGame = function(gameModel){
         var map = $injector.get(gameModel.map.name);
         init(angular.copy(map), gameModel);
+    };
+
+    this.getFieldOf = function(player){
+        var fields = [];
+        for(var r = 0; r< rLength; r++){
+            for(var c = 0; c< cLength; c++){
+                var field = board[r][c];
+                if(field.owner === player){
+                    fields.push(field);
+                }
+            }
+        }
+        return fields;
     }
 
 } );

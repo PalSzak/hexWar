@@ -28,7 +28,7 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
         } else if(angular.isDefined(source) && nameOfNeighbours){
             target = clickedHex;
             change = true;
-        } else if(clickedHex.owner ===  playerService.getPlayer()){
+        } else if(playerService.getPlayer().type === 'player' && clickedHex.owner ===  playerService.getPlayer().id){
             source = clickedHex;
             target = undefined;
             change = true;
