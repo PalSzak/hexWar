@@ -58,7 +58,7 @@ module.exports = function(grunt) {
         },
         files: [
           '<%= yo.app %>/*.html',
-          '<%= yo.app %>/views/{,*/}*.html',
+          '<%= yo.app %>/views/**/*.html',
           '.tmp/styles/{,*/}*.css',
           '.tmp/scripts/{,*/}*.js',
           '<%= yo.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
@@ -222,7 +222,7 @@ module.exports = function(grunt) {
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yo.dist %>/{,*/}*.html'],
+      html: ['<%= yo.dist %>/views/**/*.html'],
       css: ['<%= yo.dist %>/styles/{,*/}*.css'],
       options: {
         assetsDirs: ['<%= yo.dist %>']
@@ -305,7 +305,7 @@ module.exports = function(grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             '*.html',
-            'views/{,*/}*.html',
+            'views/**/*.html',
             'bower_components/**/*',
             'images/{,*/}*.{webp}',
             'fonts/*'
