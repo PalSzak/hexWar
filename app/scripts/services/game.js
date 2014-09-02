@@ -2,6 +2,7 @@
 
 angular.module('PalSzak.Hexwar').service( 'gameService', function($modal, playerService, boardService, selectService, fieldHelper){
     var neighbourNameList = ['bottomRight','bottom','bottomLeft','topRight','topLeft','top'];
+    var gameFinished = false;
 
     this.initGame = function(gameModel) {
         playerService.initGame(gameModel);
@@ -34,9 +35,9 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($modal, player
             }
         });
 
-        console.log(playerService.getPlayers(), playerService.getPlayers().length);
-        if(playerService.getPlayers().length === 1){
-            gameEnd( playerService.getPlayers()[0], 500); 
+        if(playerService.getPlayers().length === 1 && !gameFinished){
+            gameFinished = true;
+            gameEnd( playerService.getPlayers()[0]); 
         }
 
         playerService.nextTurn();
