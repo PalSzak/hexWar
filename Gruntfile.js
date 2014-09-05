@@ -222,7 +222,7 @@ module.exports = function(grunt) {
 
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yo.dist %>/views/**/*.html'],
+      html: ['<%= yo.dist %>/index.html','<%= yo.dist %>/views/**/*.html'],
       css: ['<%= yo.dist %>/styles/{,*/}*.css'],
       options: {
         assetsDirs: ['<%= yo.dist %>']
@@ -255,22 +255,22 @@ module.exports = function(grunt) {
     //     }]
     //   }
     // },
-    // htmlmin: {
-    //   dist: {
-    //     options: {
-    //       collapseWhitespace: true,
-    //       collapseBooleanAttributes: true,
-    //       removeCommentsFromCDATA: true,
-    //       removeOptionalTags: true
-    //     },
-    //     files: [{
-    //       expand: true,
-    //       cwd: '<%= yo.dist %>',
-    //       src: ['*.html', 'views/{,}*.html'],
-    //       dest: '<%= yo.dist %>'
-    //     }]
-    //   }
-    // },*/
+    htmlmin: {
+      dist: {
+        options: {
+          collapseWhitespace: true,
+          collapseBooleanAttributes: true,
+          removeCommentsFromCDATA: true,
+          removeOptionalTags: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yo.dist %>',
+          src: ['*.html', 'views/{,}*.html'],
+          dest: '<%= yo.dist %>'
+        }]
+      }
+    },
 
     // ngmin tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection. It doesn't work on
@@ -392,12 +392,12 @@ module.exports = function(grunt) {
     'concat',
     'ngmin',
     'copy:dist',
-    // 'cdnify',
+    //'cdnify',
     'cssmin',
     'uglify',
     'rev',
     'usemin',
-    //'htmlmin'
+    'htmlmin'
   ]);
 
   grunt.registerTask('default', [
