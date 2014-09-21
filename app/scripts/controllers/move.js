@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar')
-    .controller('MoveController', function($scope, gameService, selectService) {
+    .controller('MoveController', function($scope, gameService, selectService, playerService) {
+        $scope.isPlayer = playerService.getPlayer().type === 'player';
+
         $scope.$on('selection-changed', function(event, args) {
             $scope.from = selectService.getSource();
             $scope.to = selectService.getTarget();
@@ -19,7 +21,7 @@ angular.module('PalSzak.Hexwar')
                     $scope.movePercent = $scope.from[selectService.getNameOfNeighbour() + '_permanent'];
                     $scope.percentMax += $scope.movePercent;
                 } else {
-                    $scope.movePercent = 0;
+                    $scope.movePercent = undefined;
                 }
 
             } else {
@@ -37,11 +39,21 @@ angular.module('PalSzak.Hexwar')
             $scope.from.population -= calculateChangeDiff($scope.from[selectService.getNameOfNeighbour()], $scope.moveCount);
             $scope.from[selectService.getNameOfNeighbour()] = $scope.moveCount;
 
-            $scope.from.percentMax -= calculateChangeDiff( $scope.from[selectService.getNameOfNeighbour() + '_permanent'], $scope.movePercent);
-            $scope.from[selectService.getNameOfNeighbour() + '_permanent'] = $scope.movePercent;
+            if(angular.isDefined($scope.movePercent)){
+                if($scope.movePercent !== 0){
+                    $scope.from.percentMax -= calculateChangeDiff( $scope.from[selectService.getNameOfNeighbour() + '_permanent'], $scope.movePercent);
+                    $scope.from[selectService.getNameOfNeighbour() + '_permanent'] = $scope.movePercent;
+                } else {
+                    delete $scope.from[selectService.getNameOfNeighbour() + '_permanent'];
+                }
+            }
 
             selectService.deselectAll();
         };
+
+        $scope.$on('turn-changed', function(event, args){
+            $scope.isPlayer = playerService.getPlayer().type === 'player';
+        });
 
         $scope.turn = function(){
             gameService.nextTurn();

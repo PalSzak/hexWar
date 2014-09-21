@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'gameService', function($modal, playerService, boardService, selectService, fieldHelper){
+angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $modal, playerService, boardService, selectService, fieldHelper){
     var neighbourNameList = ['bottomRight','bottom','bottomLeft','topRight','topLeft','top'];
     var gameFinished = false;
 
@@ -55,6 +55,9 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($modal, player
             });
             field.population -= moveingSum;
         });
+
+        $rootScope.$broadcast('turn-changed'); 
+
     };
 
     function move(player, field, amount){
