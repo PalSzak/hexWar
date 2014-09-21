@@ -7,7 +7,7 @@ angular.module('PalSzak.Hexwar')
         if($location.path() === '/game'){
             $modal.open({
                 templateUrl: 'views/partials/modal/interrupt.html',
-                controller: function ($scope, $modalInstance) {
+                controller: ['$scope', '$modalInstance', function ($scope, $modalInstance) {
                     $scope.ok = function () {
                         $modalInstance.close('close');
                     };
@@ -15,7 +15,7 @@ angular.module('PalSzak.Hexwar')
                     $scope.cancel = function () {
                         $modalInstance.dismiss('cancel');
                     };
-                },
+                }],
                 size: 'sm'
             });
         }
@@ -24,11 +24,11 @@ angular.module('PalSzak.Hexwar')
     $scope.openRules = function (){
         $modal.open({
             templateUrl: 'views/partials/modal/rules.html',
-            controller: function ($scope, $modalInstance) {
+            controller: ['$scope', '$modalInstance', function ($scope, $modalInstance) {
                 $scope.ok = function () {
                     $modalInstance.close('close');
                 };
-            },
+            }],
             size: 'lg'
         });
     };
@@ -36,11 +36,11 @@ angular.module('PalSzak.Hexwar')
     $scope.openAbout = function (){
         $modal.open({
             templateUrl: 'views/partials/modal/about.html',
-            controller: function ($scope, $modalInstance) {
+            controller: ['$scope', '$modalInstance', function ($scope, $modalInstance) {
                 $scope.ok = function () {
                     $modalInstance.close('close');
                 };
-            },
+            }],
             size: 'lg'
         });
     };

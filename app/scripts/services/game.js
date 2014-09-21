@@ -83,7 +83,7 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $m
     function gameEnd(winner){
         $modal.open({
             templateUrl: 'views/partials/modal/end.html',
-            controller: function ($scope, $modalInstance, winner) {
+            controller: ['$scope', '$modalInstance', 'winner', function ($scope, $modalInstance, winner) {
                 $scope.winner = winner;
 
                 $scope.ok = function () {
@@ -93,7 +93,7 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $m
                 $scope.cancel = function () {
                     $modalInstance.dismiss('cancel');
                 };
-            },
+            }],
             size: 'lg',
             resolve: {
                 winner: function () {
