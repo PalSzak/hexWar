@@ -35,7 +35,7 @@ angular.module('PalSzak.Hexwar')
 
     $scope.openAbout = function (){
         $modal.open({
-            templateUrl: 'views/partials/modal/rules.html',
+            templateUrl: 'views/partials/modal/about.html',
             controller: function ($scope, $modalInstance) {
                 $scope.ok = function () {
                     $modalInstance.close('close');
