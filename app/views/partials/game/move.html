@@ -4,7 +4,7 @@
             <label for="moveCount" class="col-sm-4 control-label">Move</label>
             <div class="col-sm-8">
                 <div class="input-group">
-                    <input id="moveCount" ng-disabled="!(!!from && !!to)" class="form-control" type="number" min="0" max="{{from.max}}" step="1" ng-model="moveCount" >
+                    <input id="moveCount" ng-disabled="!(!!from && !!to)" class="form-control" type="number" min="0" max="{{max}}" step="1" ng-model="moveCount" >
                     <span class="input-group-addon">pcs</span>
                 </div>
           </div>
@@ -13,7 +13,7 @@
             <label for="movePercent" class="col-sm-4 control-label">Permanent move</label>
             <div class="col-sm-8">
                 <div class="input-group">
-                    <input id="movePercent" ng-disabled="!(!!from && !!to)" class="form-control" type="number" min="0" max="100" step="5" ng-model="movePercent" >
+                    <input id="movePercent" ng-disabled="!(!!from && !!to)" class="form-control" type="number" min="0" step="5" max="{{percentMax}}" ng-model="movePercent" >
                     <span class="input-group-addon">&nbsp;%&nbsp;</span>
                 </div>
             </div>

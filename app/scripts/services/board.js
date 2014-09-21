@@ -26,6 +26,7 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function($injector){
         for(var r = 0; r< rLength; r++){
             for(var c = 0; c< cLength; c++){
                 board[r][c].idx = {r:r, c:c};
+                board[r][c].percentMax = 100;
                 for(var i =1; i<=gameModel.map.maxPlayer; i++){
                     if(board[r][c].owner === 'player'+i &&  gameModel[i].type === 'none'){
                         board[r][c].owner = 'natural';

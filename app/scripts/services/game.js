@@ -42,6 +42,19 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($modal, player
 
         playerService.nextTurn();
 
+        player = playerService.getPlayer();
+
+        boardService.getFieldOf(player.id).forEach(function(field) {
+            var moveingSum = 0;
+            neighbourNameList.forEach(function(neighbourName){
+                if(angular.isDefined(field[neighbourName + '_permanent'])){
+                    var moveing = Math.floor(field[neighbourName + '_permanent']/100 * field.population);
+                    moveingSum += moveing;
+                    field[neighbourName] = moveing;
+                }
+            });
+            field.population -= moveingSum;
+        });
     };
 
     function move(player, field, amount){
