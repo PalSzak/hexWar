@@ -40,10 +40,9 @@ angular.module('PalSzak.Hexwar')
             $scope.from[selectService.getNameOfNeighbour()] = $scope.moveCount;
 
             if(angular.isDefined($scope.movePercent)){
-                if($scope.movePercent !== 0){
-                    $scope.from.percentMax -= calculateChangeDiff( $scope.from[selectService.getNameOfNeighbour() + '_permanent'], $scope.movePercent);
-                    $scope.from[selectService.getNameOfNeighbour() + '_permanent'] = $scope.movePercent;
-                } else {
+                $scope.from.percentMax -= calculateChangeDiff( $scope.from[selectService.getNameOfNeighbour() + '_permanent'], $scope.movePercent);
+                $scope.from[selectService.getNameOfNeighbour() + '_permanent'] = $scope.movePercent;
+                if($scope.movePercent === 0){
                     delete $scope.from[selectService.getNameOfNeighbour() + '_permanent'];
                 }
             }
