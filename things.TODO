@@ -1,4 +1,3 @@
   ☐ I had a bad feeling about getNameOfNeighbour function. I think the logic is wrong, and the app adjusted  to it's bad logic
- ☐ bug: hex row expand full page width
- ☐ remove ai from MenuController
- ☐ Is turnChange event realy necessary?
+    
+ 

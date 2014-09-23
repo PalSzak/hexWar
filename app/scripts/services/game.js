@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $modal, playerService, boardService, selectService, fieldHelper){
+angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $modal, playerService, boardService, selectService, fieldHelper, ai){
     var neighbourNameList = ['bottomRight','bottom','bottomLeft','topRight','topLeft','top'];
     var gameFinished = false;
 
@@ -9,6 +9,12 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $m
         boardService.initGame(gameModel);
         nextTurn();
     };
+
+    $rootScope.$on('actions-recived', function(event, args){
+        console.log(event, args);
+        nextTurn();
+        $rootScope.$digest();
+    });
 
     var nextTurn = this.nextTurn = function() {
         selectService.deselectAll();
@@ -56,8 +62,9 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $m
             field.population -= moveingSum;
         });
 
-        $rootScope.$broadcast('turn-changed'); 
-
+        if(player.type === 'ai'){
+            ai.work(boardService.getBoard());
+        }
     };
 
     function move(player, field, amount){

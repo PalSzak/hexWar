@@ -2,7 +2,12 @@
 
 angular.module('PalSzak.Hexwar')
     .controller('MoveController', function($scope, gameService, selectService, playerService) {
-        $scope.isPlayer = playerService.getPlayer().type === 'player';
+        $scope.isPlayer = false;
+
+        $scope.$watch(playerService.getPlayer, function(newValue, oldValue, scope) {
+            $scope.isPlayer = newValue.type === 'player';
+        });
+
 
         $scope.$on('selection-changed', function(event, args) {
             $scope.from = selectService.getSource();
@@ -40,19 +45,16 @@ angular.module('PalSzak.Hexwar')
             $scope.from[selectService.getNameOfNeighbour()] = $scope.moveCount;
 
             if(angular.isDefined($scope.movePercent)){
-                $scope.from.percentMax -= calculateChangeDiff( $scope.from[selectService.getNameOfNeighbour() + '_permanent'], $scope.movePercent);
-                $scope.from[selectService.getNameOfNeighbour() + '_permanent'] = $scope.movePercent;
-                if($scope.movePercent === 0){
+                if($scope.movePercent !== 0){
+                    $scope.from.percentMax -= calculateChangeDiff( $scope.from[selectService.getNameOfNeighbour() + '_permanent'], $scope.movePercent);
+                    $scope.from[selectService.getNameOfNeighbour() + '_permanent'] = $scope.movePercent;
+                } else {
                     delete $scope.from[selectService.getNameOfNeighbour() + '_permanent'];
                 }
             }
 
             selectService.deselectAll();
         };
-
-        $scope.$on('turn-changed', function(event, args){
-            $scope.isPlayer = playerService.getPlayer().type === 'player';
-        });
 
         $scope.turn = function(){
             gameService.nextTurn();

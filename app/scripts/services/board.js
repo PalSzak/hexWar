@@ -11,6 +11,10 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function($injector){
         return cLength;
     };
 
+    this.getBoard = function(){
+        return board;
+    };
+
     var getField = this.getField = function (idx){
         if(angular.isDefined(idx) && angular.isDefined(idx.c) && angular.isDefined(idx.r)){
             return board[idx.r][idx.c];

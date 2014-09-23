@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar')
-  .controller('MenuController', function($scope, $location, $modal, ai) {
+  .controller('MenuController', function($scope, $location, $modal) {
 
     $scope.interruptGame = function (){
         if($location.path() === '/game'){
