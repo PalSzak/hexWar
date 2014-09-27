@@ -12,7 +12,7 @@ angular.module('PalSzak.Hexwar')
     });
 
     $scope.$on('$locationChangeSuccess', function(next, current) {
-        if($location.path() == '/game'){
+        if($location.path() === '/game'){
             $scope.inGame = true;
         } else {
             $scope.inGame = false;
