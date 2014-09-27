@@ -32,6 +32,7 @@
     "angular-touch": "^1.3.0-beta.15",
     "angular": "^1.3.0-beta.15",
     "jquery": "~2.1.1",
-    "angular-bootstrap": "~0.11.0"
+    "angular-bootstrap": "~0.11.0",
+    "angular-ui-slider": "git@github.com:PalSzak/ui-slider.git"
   }
 }
