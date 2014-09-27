@@ -8,7 +8,11 @@ angular.module('PalSzak.Hexwar').service( 'playerService', function(){
     };
 
     this.getPlayer = function() {
-        return players[turn%players.length];
+        if(angular.isDefined(players)){
+            return players[turn%players.length];
+        } else {
+            return undefined;
+        }
     };
 
     this.removePlayer = function(player) {

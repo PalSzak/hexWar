@@ -23,6 +23,10 @@ body {
     overflow: scroll;
 }
 
+.btn-inverse {
+  .button-variant(@navbar-inverse-brand-color, @navbar-inverse-bg, @navbar-default-border);
+}
+
 @media (max-width: @screen-xs-max) {
     #move[data-usable='true']{
         background-color: white;

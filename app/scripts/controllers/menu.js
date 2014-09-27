@@ -1,7 +1,27 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar')
-  .controller('MenuController', function($scope, $location, $modal) {
+  .controller('MenuController', function($scope, $location, $modal, playerService, gameService) {
+    $scope.isPlayer = false;
+
+    $scope.$watch(playerService.getPlayer, function(newValue, oldValue, scope) {
+        if(angular.isDefined(newValue)){
+            $scope.isPlayer = newValue.type === 'player';
+            $scope.playerName = newValue.name;
+        }
+    });
+
+    $scope.$on('$locationChangeSuccess', function(next, current) {
+        if($location.path() == '/game'){
+            $scope.inGame = true;
+        } else {
+            $scope.inGame = false;
+        }
+    });
+
+    $scope.turn = function(){
+        gameService.nextTurn();
+    };
 
     $scope.interruptGame = function (){
         if($location.path() === '/game'){

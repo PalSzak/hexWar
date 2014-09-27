@@ -2,12 +2,6 @@
 
 angular.module('PalSzak.Hexwar')
     .controller('MoveController', function($scope, gameService, selectService, playerService) {
-        $scope.isPlayer = false;
-
-        $scope.$watch(playerService.getPlayer, function(newValue, oldValue, scope) {
-            $scope.isPlayer = newValue.type === 'player';
-        });
-
 
         $scope.$on('selection-changed', function(event, args) {
             $scope.from = selectService.getSource();
@@ -56,9 +50,5 @@ angular.module('PalSzak.Hexwar')
             }
 
             selectService.deselectAll();
-        };
-
-        $scope.turn = function(){
-            gameService.nextTurn();
         };
   });
