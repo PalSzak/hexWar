@@ -34,6 +34,8 @@ angular.module('PalSzak.Hexwar')
                 $scope.movePercent = undefined;
             }
 
+            $scope.usable = angular.isDefined($scope.from) && angular.isDefined($scope.to);
+
          });
 
         function calculateChangeDiff(oldValue, newValue) {

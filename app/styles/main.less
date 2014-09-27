@@ -19,7 +19,25 @@ body {
 
 
 #board {
-    height: 90vh;
+    height: 88vh;
     overflow: scroll;
+}
 
+@media (max-width: @screen-xs-max) {
+    #move[data-usable='true']{
+        background-color: white;
+        position: fixed;
+        display: block !important;
+
+        @media (orientation:landscape) {
+            width:40%;
+            right:0;
+            height:88%;
+        }
+
+        @media (orientation:portrait) {
+            width:100%;
+            bottom:0;
+        }
+    }
 }
