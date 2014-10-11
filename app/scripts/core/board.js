@@ -39,9 +39,9 @@ hexWarCore.Board = (function (){
         return this.board;
     };
 
-    Board.prototype.getField = function (idx){
-        if(hexWarCore.isDefined(idx) && hexWarCore.isDefined(idx.c) && hexWarCore.isDefined(idx.r)){
-            return this.board[idx.r][idx.c];
+    Board.prototype.getField = function (coord){
+        if(hexWarCore.isDefined(coord) && hexWarCore.isDefined(coord.c) && hexWarCore.isDefined(coord.r)){
+            return this.board[coord.r][coord.c];
         } else {
             return undefined;
         }

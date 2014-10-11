@@ -9,7 +9,7 @@ angular.module('PalSzak.Hexwar')
             idx: '=idx'
         },
         templateUrl: 'views/partials/game/hex.html',
-        controller: function($scope, boardService, selectService, fieldHelper){
+        controller: function($scope, boardService, selectService){
             $scope.field = boardService.getField($scope.idx);
             if($scope.field.owner !== 'empty'){
                 $scope.select = selectService.setClicked;
@@ -18,7 +18,10 @@ angular.module('PalSzak.Hexwar')
                         $scope.marker = 'neighbour';
                     } else if(angular.equals($scope.field, selectService.getSource())) {
                         $scope.marker = 'active';
-                    } else if(angular.isUndefined(selectService.getTarget()) && fieldHelper.getNameOfNeighbour(selectService.getSource() ,$scope.field)){
+                    } else if(angular.isUndefined(selectService.getTarget()) &&
+                        angular.isDefined(selectService.getSource()) &&
+                        selectService.getSource().getNameOfNeighbour($scope.field)){
+
                         $scope.marker = 'neighbour';
                     } else {
                         $scope.marker = '';

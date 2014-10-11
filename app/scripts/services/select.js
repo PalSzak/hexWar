@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, fieldHelper, playerService){
+angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, playerService){
     var source;
     var target;
     var nameOfNeighbours;
@@ -19,7 +19,7 @@ angular.module('PalSzak.Hexwar').service( 'selectService', function($rootScope, 
 
     this.setClicked = function(clickedHex){
         var change = false;
-        nameOfNeighbours = fieldHelper.getNameOfNeighbour(source, clickedHex);
+        nameOfNeighbours = angular.isDefined(source)? source.getNameOfNeighbour(clickedHex) : undefined;
 
         if(angular.equals(clickedHex, source)){
             source = undefined;

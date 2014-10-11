@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $location, $modal, playerService, boardService, selectService, fieldHelper, ai){
+angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $location, $modal, playerService, boardService, selectService, ai){
     var neighbourNameList = ['bottomRight','bottom','bottomLeft','topRight','topLeft','top'];
     var gameFinished = false;
 
@@ -29,7 +29,7 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $
                 populationGrow(field);
                 neighbourNameList.forEach(function(neighbourName){
                     if(angular.isDefined(field[neighbourName])){
-                        var neighbour = boardService.getField(fieldHelper.getNeighbour(field, neighbourName));
+                        var neighbour = boardService.getField(field.getNeighbour(neighbourName));
                         move(player, neighbour, field[neighbourName]);
                         delete field[neighbourName];
                     }
