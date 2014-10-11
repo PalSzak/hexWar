@@ -1,16 +1,21 @@
 'use strict';
 
-angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $modal, playerService, boardService, selectService, fieldHelper, ai){
+angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $location, $modal, playerService, boardService, selectService, fieldHelper, ai){
     var neighbourNameList = ['bottomRight','bottom','bottomLeft','topRight','topLeft','top'];
     var gameFinished = false;
 
-    this.initGame = function(gameModel) {
+    if($location.path() === '/game' && !boardService.isInitialized()){
+        $location.path('/');
+    }
+
+    this.startGame = function(gameModel) {
         playerService.initGame(gameModel);
         boardService.initGame(gameModel);
         nextTurn();
+        $location.path('/game');
     };
 
-    $rootScope.$on('actions-recived', function(event, args){
+    $rootScope.$on('actions-recived', function(event, args) {
         console.log(event, args);
         nextTurn();
         $rootScope.$digest();
@@ -43,7 +48,7 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $m
 
         if(playerService.getPlayers().length === 1 && !gameFinished){
             gameFinished = true;
-            gameEnd( playerService.getPlayers()[0]); 
+            gameEnd( playerService.getPlayers()[0]);
         }
 
         playerService.nextTurn();
@@ -63,7 +68,12 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope, $m
         });
 
         if(player.type === 'ai'){
-            ai.work(boardService.getBoard());
+            // angular.copy( boardService.getBoard() );
+            ai.work({
+                board: boardService.getBoard(),
+                player: playerService.getPlayer(),
+                players: playerService.getPlayers()
+            });
         }
     };
 

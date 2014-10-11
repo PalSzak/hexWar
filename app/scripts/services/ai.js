@@ -12,11 +12,23 @@ angular.module('PalSzak.Hexwar').service( 'ai', function($rootScope, playerServi
         throw event.data;
     }
 
-    this.work =function (board) {
+    this.work =function (state) {
         var worker = new Worker('/scripts/workers/ai.js');
-        worker.onmessage = resultReceiver;
+
+        worker.onmessage = function(event){
+            switch (event.data.type){
+                case 'debug':
+                    console.log.apply(console, event.data.message);
+                    break;
+                default:
+                    resultReceiver(event);
+                    break;
+            }
+        };
+
         worker.onerror = errorReceiver;
-        worker.postMessage(board);
+
+        worker.postMessage(state);
     };
 
 });

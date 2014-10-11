@@ -23,6 +23,11 @@
   "eqnull": false,
   "expr": true,
   "globals": {
-    "angular": false
+    "angular": false,
+    "hexWarCore": true,
+    "importScripts": false,
+    "self": false,
+    "self.postMessage": false,
+    "self.onmessage": false
   }
 }
