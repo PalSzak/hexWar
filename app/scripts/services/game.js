@@ -16,7 +16,6 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $
     };
 
     $rootScope.$on('actions-recived', function(event, args) {
-        console.log(event, args);
         nextTurn();
         $rootScope.$digest();
     });

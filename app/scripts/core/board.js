@@ -2,31 +2,37 @@
 
 hexWarCore.Board = (function (){
     function Board (map, gameModel) {
-        this.board = JSON.parse(JSON.stringify(map)); //copy constructor
-        this.rLength = Object.keys(this.board).length;
-        this.cLength = Object.keys(this.board[0]).length;
-
         if (typeof gameModel !== 'undefined'){
-            for(var r = 0; r< this.rLength; r++){
-                for(var c = 0; c< this.cLength; c++){
-                    this.board[r][c].idx = {r:r, c:c};
-                    this.board[r][c].percentMax = 100;
-                    for(var i =1; i<=gameModel.map.maxPlayer; i++){
-                        if(this.board[r][c].owner === 'player'+i &&  gameModel[i].type === 'none'){
-                            this.board[r][c].owner = 'natural';
-                        }
-                    }
+            this.board = JSON.parse(JSON.stringify(map));
+            this.board.rLength = Object.keys(this.board).length;
+            this.board.cLength = Object.keys(this.board[0]).length;
+
+            for(var r = 0; r< this.board.rLength; r++){
+                for(var c = 0; c< this.board.cLength; c++){
+                    var id =Number.parseInt(this.board[r][c].owner.slice(-1), 10);
+
+                    this.board[r][c] = new hexWarCore.Hex(
+                        this.board[r][c].population,
+                        {r:r, c:c},
+                        !Number.isNaN(id) && gameModel[id].type === 'none' ?
+                            'natural' : this.board[r][c].owner
+                    );
                 }
             }
+        } else {
+            //copy constructor
+            /* maybe Object.create(map);  It cause error, because board[0] no more key of board
+               JSON.parse(JSON.stringify(map)); It doesn't copy prototype, but mixins maybe solve this  */
+            this.board = Object.create(map); //this is the board object of the original Board
         }
     }
 
     Board.prototype.getRowCount = function(){
-        return this.rLength;
+        return this.board.rLength;
     };
 
     Board.prototype.getColumnCount = function(){
-        return this.cLength;
+        return this.board.cLength;
     };
 
     Board.prototype.getBoard = function(){
@@ -44,8 +50,8 @@ hexWarCore.Board = (function (){
 
     Board.prototype.getFieldOf = function(player){
         var fields = [];
-        for(var r = 0; r< this.rLength; r++){
-            for(var c = 0; c< this.cLength; c++){
+        for(var r = 0; r< this.board.rLength; r++){
+            for(var c = 0; c< this.board.cLength; c++){
                 var field = this.board[r][c];
                 if(field.owner === player){
                     fields.push(field);
@@ -57,8 +63,8 @@ hexWarCore.Board = (function (){
 
     Board.prototype.getStatistic = function(player){
         var statistic = {};
-        for(var r = 0; r< this.rLength; r++){
-            for(var c = 0; c< this.cLength; c++){
+        for(var r = 0; r< this.board.rLength; r++){
+            for(var c = 0; c< this.board.cLength; c++){
                 var field = this.board[r][c];
                 if(hexWarCore.isDefined(statistic[field.owner])){
                     statistic[field.owner]++;

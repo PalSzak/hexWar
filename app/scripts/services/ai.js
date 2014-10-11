@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar').service( 'ai', function($rootScope, playerService){
+    var worker = new Worker('/scripts/workers/ai.js');
 
     function resultReceiver(event) {
         console.log(event);
@@ -13,8 +14,6 @@ angular.module('PalSzak.Hexwar').service( 'ai', function($rootScope, playerServi
     }
 
     this.work =function (state) {
-        var worker = new Worker('/scripts/workers/ai.js');
-
         worker.onmessage = function(event){
             switch (event.data.type){
                 case 'debug':

@@ -30,7 +30,7 @@ self.onmessage = function(event) {
 
     var boardCopy = new hexWarCore.Board(node.board);
 
-    log('Log from worker: recived data', typeof boardCopy);
+    log('Log from worker: recived data', boardCopy);
 
     setTimeout(function(){
         post(actions);
