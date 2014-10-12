@@ -38,5 +38,44 @@ hexWarCore.Hex = (function (){
         return neighbourIdx;
     };
 
+    function calculateChangeDiff(oldValue, newValue) {
+        return hexWarCore.isDefined(oldValue) ? newValue - oldValue : newValue;
+    }
+
+    Hex.prototype.prepareMove = function (action){
+        this.population -= calculateChangeDiff(this[action.directionName], action.moveCount);
+        this[action.directionName] = action.moveCount;
+
+        if(hexWarCore.isDefined(action.permanentMove)){
+            var permanentDirectionName = action.directionName + '_permanent';
+            if(action.permanentMove !== 0){
+                this.percentMax -= calculateChangeDiff( this[permanentDirectionName], action.permanentMove);
+                this[permanentDirectionName] = action.permanentMove;
+            } else {
+                delete this[permanentDirectionName];
+            }
+        }
+    };
+
+    Hex.prototype.performMove = function (action) {
+        delete this[action.directionName];
+    };
+
+    Hex.prototype.recive = function (action){
+        if(this.owner === action.from.owner){ //move
+            this.population += action.moveCount;
+        } else { //attack
+            this.population -= action.moveCount;
+            if(this.population < 0){
+                this.population *= -1;
+                this.owner = action.from.owner;
+            }
+        }
+    };
+
+    Hex.prototype.grow = function (){
+        this.population++;
+    };
+
     return Hex;
 }(hexWarCore));

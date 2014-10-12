@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $location, $modal, playerService, boardService, selectService, ai){
-    var neighbourNameList = ['bottomRight','bottom','bottomLeft','topRight','topLeft','top'];
     var gameFinished = false;
+    var actionLists = {};
+    var actions;
 
     if($location.path() === '/game' && !boardService.isInitialized()){
         $location.path('/');
@@ -11,31 +12,56 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $
     this.startGame = function(gameModel) {
         playerService.initGame(gameModel);
         boardService.initGame(gameModel);
-        nextTurn();
+        playerService.getPlayers().forEach(function(player){
+            actionLists[player.id] = [];
+        });
+        prepareNextTurn();
         $location.path('/game');
     };
 
-    $rootScope.$on('actions-recived', function(event, args) {
+    $rootScope.$on('actions-recived', function(event, args) { //from ai
         nextTurn();
         $rootScope.$digest();
     });
 
-    var nextTurn = this.nextTurn = function() {
-        selectService.deselectAll();
-        var player = playerService.getPlayer();
+    this.pushAction = function(action){
+        var index = actions.findIndex(function(element, index, array){
+            if ( element.from.coord.r === action.from.coord.r &&
+                 element.from.coord.c === action.from.coord.c &&
+                 element.directionName === action.directionName ) {
+                return true;
+            } else {
+                return false;
+            }
+        });
 
-        if(angular.isDefined(player)){
-            boardService.getFieldOf(player.id).forEach(function(field) {
-                populationGrow(field);
-                neighbourNameList.forEach(function(neighbourName){
-                    if(angular.isDefined(field[neighbourName])){
-                        var neighbour = boardService.getField(field.getNeighbour(neighbourName));
-                        move(player, neighbour, field[neighbourName]);
-                        delete field[neighbourName];
-                    }
-                });
-            });
+        if(index > -1){
+            actions.splice(index, 1);
         }
+
+        actions.push(action);
+        action.from.prepareMove(action);
+    };
+
+    var nextTurn = this.nextTurn = function() {
+        performThisTurn();
+        prepareNextTurn();
+    };
+
+    function performThisTurn() {
+        selectService.deselectAll();
+
+        for(var i = 0; i < actions.length; i++) {
+            actions[i].from.performMove(actions[i]);
+            actions[i].to.recive(actions[i]);
+            if(angular.isUndefined(actions[i].permanentMove) || actions[i].permanentMove === 0){
+                actions.splice(i--, 1);
+            }
+        }
+
+        boardService.getFieldOf(playerService.getPlayer().id).forEach(function(field) {
+            field.grow();
+        });
 
         var stat = boardService.getStatistic();
 
@@ -49,51 +75,28 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $
             gameFinished = true;
             gameEnd( playerService.getPlayers()[0]);
         }
+    }
 
+    function prepareNextTurn() {
         playerService.nextTurn();
+        var player = playerService.getPlayer();
+        actions = actionLists[player.id];
 
-        player = playerService.getPlayer();
+        actions.forEach(function(action) {
+            action.moveCount = Math.floor(action.permanentMove/100 * action.from.population);
+        });
 
-        boardService.getFieldOf(player.id).forEach(function(field) {
-            var moveingSum = 0;
-            neighbourNameList.forEach(function(neighbourName){
-                if(angular.isDefined(field[neighbourName + '_permanent'])){
-                    var moveing = Math.floor(field[neighbourName + '_permanent']/100 * field.population);
-                    moveingSum += moveing;
-                    field[neighbourName] = moveing;
-                }
-            });
-            field.population -= moveingSum;
+        actions.forEach(function(action) {
+            action.from.prepareMove(action);
         });
 
         if(player.type === 'ai'){
-            // angular.copy( boardService.getBoard() );
             ai.work({
                 board: boardService.getBoard(),
                 player: playerService.getPlayer(),
                 players: playerService.getPlayers()
             });
         }
-    };
-
-    function move(player, field, amount){
-        if(field.owner === player.id){
-            field.population += amount;
-        } else {
-            attack(player, field, amount);
-        }
-    }
-
-    function attack(atacker, field, amount){
-        field.population -= amount;
-        if(field.population < 0){
-            field.population *= -1;
-            field.owner = atacker.id;
-        }
-    }
-
-    function populationGrow(field){
-        field.population++;
     }
 
     function gameEnd(winner){

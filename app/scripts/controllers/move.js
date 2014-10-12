@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('PalSzak.Hexwar')
-    .controller('MoveController', function($scope, gameService, selectService, playerService) {
+    .controller('MoveController', function($scope, gameService, selectService) {
 
         $scope.$on('selection-changed', function(event, args) {
             $scope.from = selectService.getSource();
@@ -37,17 +37,13 @@ angular.module('PalSzak.Hexwar')
         }
 
         $scope.move = function(){
-            $scope.from.population -= calculateChangeDiff($scope.from[selectService.getNameOfNeighbour()], $scope.moveCount);
-            $scope.from[selectService.getNameOfNeighbour()] = $scope.moveCount;
-
-            if(angular.isDefined($scope.movePercent)){
-                if($scope.movePercent !== 0){
-                    $scope.from.percentMax -= calculateChangeDiff( $scope.from[selectService.getNameOfNeighbour() + '_permanent'], $scope.movePercent);
-                    $scope.from[selectService.getNameOfNeighbour() + '_permanent'] = $scope.movePercent;
-                } else {
-                    delete $scope.from[selectService.getNameOfNeighbour() + '_permanent'];
-                }
-            }
+            gameService.pushAction({
+                from : $scope.from,
+                to : $scope.to,
+                moveCount : $scope.moveCount,
+                permanentMove : $scope.movePercent,
+                directionName : selectService.getNameOfNeighbour()
+            });
 
             selectService.deselectAll();
         };

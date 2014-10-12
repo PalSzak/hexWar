@@ -3,6 +3,10 @@
 angular.module('PalSzak.Hexwar').service( 'boardService', function($injector){
     var board;
 
+    this.initGame = function(gameModel){
+        board = new hexWarCore.Board(angular.copy($injector.get(gameModel.map.name)), gameModel);
+    };
+
     this.isInitialized = function(){
         return angular.isDefined(board);
     };
@@ -21,11 +25,6 @@ angular.module('PalSzak.Hexwar').service( 'boardService', function($injector){
 
     this.getField = function (idx){
         return board.getField(idx);
-    };
-
-
-    this.initGame = function(gameModel){
-        board = new hexWarCore.Board(angular.copy($injector.get(gameModel.map.name)), gameModel);
     };
 
     this.getFieldOf = function(player){
