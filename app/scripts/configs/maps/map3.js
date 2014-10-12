@@ -6,7 +6,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             1:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             2:{
@@ -38,7 +38,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             9:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             10:{
@@ -48,7 +48,7 @@ angular.module('PalSzak.Hexwar')
         },
         1:{
             0:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             1:{
@@ -56,7 +56,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'player1'
             },
             2:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             3:{
@@ -80,7 +80,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             8:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             9:{
@@ -88,25 +88,25 @@ angular.module('PalSzak.Hexwar')
                 owner: 'player2'
             },
             10:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             }
         },
         2:{
             0:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             1:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             2:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             3:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             4:{
@@ -114,7 +114,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             5:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             6:{
@@ -122,19 +122,19 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             7:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             8:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             9:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             10:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             }
         },
@@ -156,15 +156,15 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             4:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             5:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             6:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             7:{
@@ -202,15 +202,15 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             4:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             5:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             6:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             7:{
@@ -252,7 +252,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             5:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             6:{
@@ -298,7 +298,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             5:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             6:{
@@ -340,7 +340,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             4:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             5:{
@@ -348,7 +348,7 @@ angular.module('PalSzak.Hexwar')
                 owner: 'player3'
             },
             6:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             7:{
@@ -386,15 +386,15 @@ angular.module('PalSzak.Hexwar')
                 owner: 'empty'
             },
             4:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             5:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             6:{
-                population: 10,
+                population: 2,
                 owner: 'natural'
             },
             7:{
