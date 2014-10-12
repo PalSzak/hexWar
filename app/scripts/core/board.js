@@ -2,13 +2,14 @@
 
 hexWarCore.Board = (function (){
     function Board (map, gameModel) {
+        var r, c;
         if (typeof gameModel !== 'undefined'){
             this.board = JSON.parse(JSON.stringify(map));
             this.board.rLength = Object.keys(this.board).length;
             this.board.cLength = Object.keys(this.board[0]).length;
 
-            for(var r = 0; r< this.board.rLength; r++){
-                for(var c = 0; c< this.board.cLength; c++){
+            for(r = 0; r< this.board.rLength; r++){
+                for(c = 0; c< this.board.cLength; c++){
                     var id =Number.parseInt(this.board[r][c].owner.slice(-1), 10);
 
                     this.board[r][c] = new hexWarCore.Hex(
@@ -24,6 +25,12 @@ hexWarCore.Board = (function (){
             /* maybe Object.create(map);  It cause error, because board[0] no more key of board
                JSON.parse(JSON.stringify(map)); It doesn't copy prototype, but mixins maybe solve this  */
             this.board = Object.create(map); //this is the board object of the original Board
+
+            for(r = 0; r< this.board.rLength; r++){
+                for(c = 0; c< this.board.cLength; c++){
+                    this.board[r][c] = new hexWarCore.Hex(this.board[r][c]);
+                }
+            }
         }
     }
 
@@ -40,11 +47,14 @@ hexWarCore.Board = (function (){
     };
 
     Board.prototype.getField = function (coord){
-        if(hexWarCore.isDefined(coord) && hexWarCore.isDefined(coord.c) && hexWarCore.isDefined(coord.r)){
+        if(hexWarCore.isDefined(coord) &&
+            hexWarCore.isDefined(coord.c) &&
+            hexWarCore.isDefined(coord.r) &&
+            hexWarCore.isDefined(this.board[coord.r])){
+
             return this.board[coord.r][coord.c];
-        } else {
-            return undefined;
         }
+        return undefined;
     };
 
 

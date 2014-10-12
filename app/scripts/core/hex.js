@@ -1,11 +1,17 @@
 'use strict';
 
 hexWarCore.Hex = (function (){
-    function Hex(population, coord, owner){
-        this.population = population;
-        this.owner = owner;
-        this.coord = coord;
-        this.percentMax = 100;
+    function Hex(base, coord, owner){
+        if(hexWarCore.isDefined(coord) && hexWarCore.isDefined(owner)){
+            this.population = base;
+            this.owner = owner;
+            this.coord = coord;
+            this.percentMax = 100;
+        } else { //copyConstructor
+            for (var prop in base){
+                this[prop] = base[prop];
+            }
+        }
     }
 
     Hex.prototype.getNameOfNeighbour = function(to) {

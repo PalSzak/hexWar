@@ -19,12 +19,22 @@ angular.module('PalSzak.Hexwar').service( 'gameService', function($rootScope,  $
         $location.path('/game');
     };
 
-    $rootScope.$on('actions-recived', function(event, args) { //from ai
-        nextTurn();
+    $rootScope.$on('actions-recived', function(event, actions) { //from ai
+        actions.forEach(function(action){
+            action.from = boardService.getField(action.from.coord);
+            action.to = boardService.getField(action.to.coord);
+            pushAction(action);
+        });
         $rootScope.$digest();
+
+        setTimeout(function(){ //TODO: some animation
+            nextTurn();
+            $rootScope.$digest();
+        }, 1500);
+
     });
 
-    this.pushAction = function(action){
+    var pushAction = this.pushAction = function(action){
         var index = actions.findIndex(function(element, index, array){
             if ( element.from.coord.r === action.from.coord.r &&
                  element.from.coord.c === action.from.coord.c &&

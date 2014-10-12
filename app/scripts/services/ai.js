@@ -27,6 +27,7 @@ angular.module('PalSzak.Hexwar').service( 'ai', function($rootScope, playerServi
 
         worker.onerror = errorReceiver;
 
+        console.log('WORKER START');
         worker.postMessage(state);
     };
 
