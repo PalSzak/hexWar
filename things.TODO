@@ -2,3 +2,5 @@
   ☐ Board height calculation in responsive design mode
   ☐ field helper is ugly.  create hex object, the neighbour validation should be in it's prototype.
   ☐ Use Cbject.create at hex config object, so we can gain save memory
+ ☐ need permanent move visualisation
+   ☐  use templates in hex-row and hex-field directives
