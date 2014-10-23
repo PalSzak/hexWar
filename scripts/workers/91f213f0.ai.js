@@ -2,7 +2,7 @@
 
 //this is only an ugly hack but i want something like this:
 
-
+importScripts('../a3c7d9b7.hexWarCore.min.js');
 
 function post(event){
     self.postMessage(event);
