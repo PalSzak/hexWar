@@ -1,0 +1,12 @@
+<div id="board">
+    <div id="inner-board" ng-class="size" ng-style="width">
+        <div id="zoom" class="btn-group">
+            <label class="btn btn-primary btn-xs" ng-click='zoomOut()'>-</label>
+            <label class="btn btn-primary btn-xs" ng-click='zoomIn()'>+</label>
+        </div>
+
+        <div class="hex-row" ng-repeat="r in getNumber(getRowCount()) track by $index">
+            <div ng-repeat="c in getNumber(getColumnCount()) track by $index" hex="{r:r, c:c}" even="$odd"></div>
+        </div>
+    </div>
+</div>

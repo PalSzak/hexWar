@@ -1,3 +1,0 @@
-###Hex War
-
-Stragegy game
